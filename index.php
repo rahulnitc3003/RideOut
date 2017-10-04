@@ -103,10 +103,11 @@ else{
     <li><a rel="nofollow" href="about_us.php" class="external-link">
         <i class="glyphicon glyphicon-list"></i>About Us</a>
     </li>
-    <li><a rel="nofollow" href="contact_us.html" class="external-link">
+    <li><a rel="nofollow" href="contact_us.php" class="external-link">
         <i class="glyphicon glyphicon-phone-alt"></i>Contact Us</a>
     </li>
     <li><a rel="nofollow" href="our_team.html" class="external-link"><i class="glyphicon glyphicon-user"></i>Our Team</a></li>
+    <li><a rel="nofollow" href="index.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
     <li>
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#f15556">
@@ -126,14 +127,14 @@ else{
   <div id="templatemo_banner_menu">
     <div class="container-fluid">
       <div class="col-xs-4 templatemo_logo">
-        <a href="index.php"><img src="images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
+        <a href="index.php"><img src="images/logo.png" alt="Rideout System" title="Car Ride" /></a>
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
           <li><a rel="nofollow" href="index.php" class="external-link"><i class="glyphicon glyphicon-home"></i>Home</a></li>
           <li><a rel="nofollow" href="about_us.php" class="external-link"><i class="glyphicon glyphicon-list"></i>
               About Us</a></li>
-          <li><a rel="nofollow" href="contact_us.html" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
+          <li><a rel="nofollow" href="contact_us.php" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
               Contact Us</a></li>
           <li><a rel="nofollow" href="our_team.html" class="external-link"><i class="glyphicon glyphicon-user"></i>
               Our Team</a></li>
@@ -299,8 +300,8 @@ else{
                 </div>
                <div class="event_box_caption">
                     <h1><span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;Save Money</h1>
-                    <p>Carpooling is also seen as an environmental friendly way to travel as sharing journeys reduces air pollution, traffic congestion, and parking space.</p>
-                    <p>If you carpool to and from work you would probably cut your transportation emissions number in half,or even better. Every carpooling participant takes another car off the road , which means less congested roads and highways..</p>
+                    <p>By splitting the fare, you will save your money</p>
+                    <p>See what other carpoolers are spending on routes and destinations you might be interested in.</p>
                 </div>
             </div>
         </div>
@@ -346,7 +347,7 @@ else{
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-star logo-small"></span>
       <h4>Review</h4>
-      <p>See the person's you’ve confirmed your ride with. This feature ensures users put their best foot forward.</p>
+      <p>See the person's you have confirmed your ride with. This feature ensures users put their best foot forward.</p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-user logo-small"></span>
@@ -365,12 +366,12 @@ Make them your buddy!</p>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-map-marker logo-small"></span>
       <h4>Recurring Rides</h4>
-      <p>Just post your ride once using “Add Your Journey”. Carpool everyday. Carpooling was never so easy.</p>
+      <p>Just post your ride once using Add Your Journey. Carpool everyday. Carpooling was never so easy.</p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-globe logo-small"></span>
       <h4 style="color:#303030;">Goals</h4>
-      <p>Make personal goals, and measure the miles you’ve shared and the carbon emissions you’ve saved.</p>
+      <p>Make personal goals, and measure the miles you have shared and the carbon emissions you have saved.</p>
     </div>
   </div>
 </div>

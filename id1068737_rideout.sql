@@ -2,8 +2,8 @@
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 21, 2017 at 10:16 PM
+-- Host: localhost
+-- Generation Time: Oct 04, 2017 at 08:28 PM
 -- Server version: 10.1.20-MariaDB
 -- PHP Version: 7.0.8
 
@@ -36,23 +36,7 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`book_id`, `ride_id`) VALUES
-(115, 86),
-(116, 87),
-(117, 88),
-(118, 90),
-(128, 114),
-(129, 115),
-(130, 116),
-(132, 117),
-(131, 119),
-(134, 120),
-(135, 121),
-(136, 122),
-(139, 128),
-(143, 142),
-(144, 143),
-(146, 147),
-(148, 151);
+(143, 142);
 
 -- --------------------------------------------------------
 
@@ -120,22 +104,15 @@ INSERT INTO `copassenger` (`first_name`, `last_name`, `email`, `password`, `addr
 ('harsh', 'verma', '66vermaharsh@gmail.com', '666666', 'purnea,bihar', 121212324323, '9988776655'),
 ('avnish', 'agr', 'abc@gmail.com', 'avnish', 'e3 madhokunj katra', 123456789107, '8574778572'),
 ('Abhishek ', 'Soni', 'abhishek@gmail.com', 'abhishek', 'NIT Calicut', 412569834562, '8714365122'),
-('abhishek', 'singh', 'adhisingh@nitt.ac.in', 'abhi123456', 'nit trichhi, tamilnadu( india )', 756566453443, '7988978778'),
 ('aman', 'jha', 'aman@gmail.com', 'aman123456', 'bhagalpur', 499118665421, '8877665544'),
-('avnish', 'sd', 'avn@gmail.com', 'wadwec', 'waef4rgt', 123455689101, '8574778572'),
-('avnish', 'agr', 'avnishagr@gmail.com', 'avnish', 'wdefvse', 123444789101, '8574778572'),
+('amit', 'amora', 'amitamora@gmail.com', 'amitamora', 'Calicut, Kerala', 56970569794, '09468984565'),
 ('Yogendra', 'Maurya', 'cde@gmail.com', '123456', 'Calicut', 123456789555, '8956896589'),
-('Deepak', 'roy', 'deepak@gmail.com', 'deepak', 'ranchi', 499118665421, '8877665545'),
 ('lakshit', 'garg', 'garglakshit@yahoo.com', '123456', 'nit calicut ( india )', 998723321221, '9000989889'),
 ('jyoti', 'pandey', 'jyotipandey631.jp@gmail.com', 'abcdef', 'dfmjidn', 123454567890, '8888888888'),
-('kumar', 'sarvottam', 'kumarsrv@gmail.com', 'sarvottam', 'sheikhpura, bihar ( india )', 978347975675, '9676786789'),
-('kumar', 'uttam', 'kumaruttam@gmail.com', 'uttam1', 'sheikhpura, bihar ( india )', 791832197428, '09808946465'),
-('pratyush', 'kumar', 'pratyush@gmail.com', '1234567890', 'nit callicut', 123123131322, '7887787887'),
-('lakshit', 'garg', 'rahulnitc3003@gmail.com', '000000', 'uttrakhand, india', 988978956765, '9876540987'),
-('diwaker', 'prajapati', 'rahulnitc30@gmail.com', '665544', 'nitc', 988978956765, '7986578976'),
-('ranna', 'singh', 'rannasingh@gmail.com', 'ranna123456', 'gaya, bihar ( india )', 878766786676, '7665454567'),
-('raushan', 'kumar', 'raushan@yahaoo.com', '123456', 'patna', 791832197428, '9676786789'),
+('Test1', 'Test2', 'rjrahul@gmail.com', '654321', 'Testing', 122222111212, '7887866766'),
+('rahul', 'raj', 'rjrahulabc30@gmail.com', '999999', 'nit calicut chattmangalam', 983748975421, '9009780021'),
 ('sarvesh', 'singh', 'sarveshsingh@gmail.com', '1234567890', 'allahabad', 121321231232, '9889080989'),
+('saurabh', 'sharma', 'saurabhamcl@gmail.com', 'sau376@#$', 'chennai', 425178562548, '7845718662'),
 ('SRUTHI', 'ANAND', 'sruthi@gmail.com', 'RIDEOUT', 'XXX', 473812312222, '9090909090'),
 ('abhishek', 'toppo', 'sumeettoppo95@gmail.com', '123456', 'nit calicut', 987654098761, '8878876787'),
 ('test', 'case', 'test1@gmail.com', '1234567890', 'nit jsr', 987654321123, '9061543942'),
@@ -165,76 +142,24 @@ CREATE TABLE `journey` (
 --
 
 INSERT INTO `journey` (`journey_id`, `email`, `car_no`, `source`, `destination`, `doj`, `seats_avail`, `mobno`) VALUES
-(1, '66vermaharsh@gmail.com', 'jh-12as-1213', 'kkr', 'jsr', '2017-03-30', '4', 9061543945),
-(2, 'rjrahulabc30@gmail.com', 'jh-21wq-2222', 'patna', 'gaya', '2017-03-31', '1', 9887878776),
-(3, 'sumeettoppo95@gmail.com', 'jh-01vc-0987', 'portblair', 'chennai', '2017-03-30', '4', 9998887767),
-(4, 'rahulnitc3003@gmail.com', 'kk-12ll-1111', 'delhi', 'kolkata', '2017-03-31', '2', 9988786886),
-(5, 'rahulnitc3003@gmail.com', 'jh-21ew-2112', 'kk', 'pb', '2017-03-31', '3', 9988776632),
-(6, 'itamannarocks@gmail.com', 'xx-12xx-1111', 'clt', 'pnbe', '2017-03-31', '3', 9878765454),
-(7, 'rahulnitc3003@gmail.com', 'uk-21wq-1212', 'pk', 'up', '2017-03-30', '4', 9090909090),
-(8, 'rahulnitc3003@gmail.com', 'jh-21we-3322', 'oo', 'pp', '2017-04-22', '1', 9098098898),
-(9, 'itamannarocks@gmail.com', 'kl-21we-2112', 'pnbe', 'clt', '2017-04-28', '4', 9876543211),
-(10, 'bishakhapriyam14@gmail.com', 'jh-21we-3322', 'CLT', 'BNG', '2017-04-05', '5', 9098098898),
-(11, 'kesarwani.namita11@gmail.com', 'up-21kk-3322', 'mas', 'alh', '2017-04-20', '5', 9876543121),
-(12, 'itamannarocks@gmail.com', 'xx-12xx-1111', 'delhi', 'ladak', '2017-04-21', '5', 9999999999),
-(13, 'itamannarocks@gmail.com', 'xx-12xx-1111', 'delhi', 'ladak', '2017-04-22', '2', 9887878776),
-(14, 'itamannarocks@gmail.com', 'xx-12xx-1111', 'delhi', 'ladak', '2017-04-21', '1', 8888888888),
-(15, 'rahulnitc3003@gmail.com', 'uk-21wq-1212', 'uk', 'up', '2017-04-20', '5', 9090909090),
-(16, 'rahulnitc3003@gmail.com', 'jj-12qw-1221', 'll', 'kk', '2017-04-02', '4', 9009090909),
-(17, 'rahulnitc3003@gmail.com', 'br-52we-1111', 'calicut', 'munnar', '2017-04-20', '3', 9988776655),
-(33, 'jyotipandey631.jp@gmail.com', 'up-70kl-1992', 'delhi', 'mumbai', '0000-00-00', '3', 8888888888),
-(34, '20raushanaryan@gmail.com', 'br-00br-1234', 'patna', 'delhi', '2017-03-27', '4', 9061543945),
-(35, 'rahulnitc3003@gmail.com', 'br-52sk-1221', 'skp', 'pnbe', '2017-03-31', '1', 9009898978),
-(36, '20raushanaryan@gmail.com', 'br-00br-1235', 'patna', 'agra', '2017-03-27', '4', 7845123691),
 (37, 'avnishagr@gmail.com', 'br-00br-1241', 'allahabad', 'bihar', '2019-06-09', '4', 8574778571),
-(38, 'avnishagr@gmail.com', 'bj-00bj-1249', 'allahabad', 'haryana', '2210-06-09', '3', 8574778572),
 (39, 'avnishagr@gmail.com', 'bj-00bj-1246', 'allahabad', 'kanpur', '2019-06-09', '4', 8574778572),
 (40, '0786mohdarsh@gmail.com', 'up-00up-1786', 'Allahabad', 'Delhi', '2018-01-01', '4', 9878654345),
-(41, 'steptostep93@gmail.com', 'UP-50AC-4516', 'Delh4', 'Noida', '0000-00-00', '3', 8956895632),
-(42, '20raushanaryan@gmail.com', 'bj-00br-1235', 'patna', 'Patna', '2017-03-27', '5', 9061586987),
 (43, '0786mohdarsh@gmail.com', 'up-70bh-1996', 'Delhi', 'Kerala', '2019-01-01', '4', 9563547554),
 (44, 'avnishagr@gmail.com', 'bj-49bj-9900', 'Allahabad', 'allahabad', '2019-10-12', '5', 8575778572),
 (45, 'avnishagr@gmail.com', 'bj-49bj-9900', 'Allahabad', 'allahabad', '2018-03-27', '5', 8575778572),
-(46, '20raushanaryan@gmail.com', 'jh-00jh-0000', 'mumbai', 'kanpur', '2017-04-27', '1', 9061543942),
 (48, '0786mohdarsh@gmail.com', 'up-22bh-1992', 'Delhi', 'Mumbai', '2019-01-01', '4', 9898989898),
 (49, '0786mohdarsh@gmail.com', 'up-22bh-1992', 'Delhi', 'Mumbai', '2019-01-01', '4', 9879879879),
 (50, '0786mohdarsh@gmail.com', 'up-70bh-1992', 'Abc', 'Def', '2019-01-01', '4', 9898981234),
 (51, '0786mohdarsh@gmail.com', 'up-70bh-8875', 'aavhgdcgsv', 'bbbbhbvjdsbjc', '2019-01-01', '4', 9813456677),
-(52, 'avnishagr@gmail.com', 'bj-00bj-9912', 'Allahabad', 'kanpur', '2017-03-29', '5', 8574778572),
-(53, 'avnishagr@gmail.com', 'bj-00bj-9912', 'Allahabad', 'kanpur', '2017-03-29', '5', 8574778572),
-(54, 'avnishagr@gmail.com', 'bj-00bj-9912', 'Allahabad', 'kanpur', '2017-03-27', '5', 8574778572),
-(55, 'avnishagr@gmail.com', 'bj-00bj-9912', 'Allahabad', 'kanpur', '2017-03-29', '5', 8574778572),
-(56, 'avnishagr@gmail.com', 'bj-00bj-9912', 'Allahabad', 'kanpur', '2017-03-29', '5', 8574778572),
-(57, 'avnishagr@gmail.com', 'bj-00bj-9912', 'chennai', 'kasmir', '2017-03-29', '5', 8574778572),
-(58, 'steptostep93@gmail.com', 'UP-00UP-4569', 'Azamgarh', 'Allahabd', '2017-04-29', '3', 8759685698),
 (59, 'avnishagr@gmail.com', 'bj-00bj-0000', 'kasmir', 'chennai', '2019-06-09', '-9', 8574778572),
-(60, '20raushanaryan@gmail.com', 'bj-00br-1235', 'patna', 'delhi', '2017-04-27', '5', 9061543941),
-(61, 'itamannarocks@gmail.com', 'up-66ty-0987', 'kashmir', 'kanyakumari', '2017-03-31', '1', 9155979937),
 (62, 'vaibhavvp71@gmail.com', 'AH-00fr-3742', 'Delhi', 'Goa', '2017-11-11', '4', 8089128372),
-(63, 'rjrahulabc30@gmail.com', 'br-52sk-1234', 'skp', 'gaya', '2017-04-05', '5', 9087007807),
-(64, 'rjrahulabc30@gmail.com', 'br-52sk-1234', 'gaya', 'skp', '2017-03-31', '4', 9087007807),
-(65, 'rahulraj30abc@gmail.com', 'br-52sk-1234', 'skp', 'gaya', '2017-03-31', '3', 9078875665),
-(66, 'itamannarocks@gmail.com', 'br-66br-6666', 'paris', 'london', '2017-04-04', '5', 9155979937),
-(67, 'itamannarocks@gmail.com', 'br-66br-6666', 'paris', 'london', '2017-04-04', '4', 8089709158),
-(68, 'itamannarocks@gmail.com', 'br-66br-6666', 'paris', 'london', '2017-04-04', '4', 8089709158),
-(69, 'itamannarocks@gmail.com', 'br-66br-6666', 'paris', 'london', '2017-04-04', '3', 9155979937),
-(70, 'itamannarocks@gmail.com', 'br-66br-6666', 'paris', 'london', '2017-04-04', '4', 8089709158),
-(71, 'itamannarocks@gmail.com', 'br-66br-6666', 'paris', 'london', '2017-04-04', '4', 8677069964),
-(72, 'itamannarocks@gmail.com', 'br-66br-6666', 'delhi', 'patna', '2017-04-09', '5', 9155979937),
-(73, '66vermaharsh@gmail.com', 'br-66br-6666', 'a', 'b', '2017-03-31', '4', 8089709158),
-(74, 'rahulnitc3003@gmail.com', 'jh-51ab-1234', 'kannur', 'kochhi', '2017-03-31', '5', 9009898978),
-(75, 'rahulnitc3003@gmail.com', 'jh-51ab-1235', 'trichy', 'suratkal', '2017-03-31', '5', 9009898978),
-(76, 'rjrahulabc30@gmail.com', 'jh-52ab-1234', 'delhi', 'goa', '2017-04-05', '5', 9089887678),
-(77, 'sruthi@nitc.ac.in', 'kl-11aa-2002', 'CALICUT', 'KOCHI', '2017-04-20', '5', 9090909090),
 (78, 'itamannarocks@gmail.com', 'br-00uo-9876', 'delhi', 'kota', '2017-09-09', '4', 8089709158),
-(79, 'itamannarocks@gmail.com', 'br-00uo-9876', 'delhi', 'kota', '2017-04-01', '3', 8089709158),
 (80, 'itamannarocks@gmail.com', 'br-00uo-9876', 'bangalore', 'kota', '2017-09-08', '5', 8089709158),
 (81, 'sumeettoppo95@gmail.com', 'jh-09cv-0987', 'ranchi', 'kota', '2017-09-09', '5', 8089709158),
-(82, 'sumeettoppo95@gmail.com', 'jh-09cv-0987', 'delhi', 'kashmir', '2017-04-03', '4', 8089709158),
-(83, 'sumeettoppo95@gmail.com', 'jh-00aa-9876', 'ranchi', 'dhanbad', '2017-04-01', '4', 8089709158),
-(84, 'sumeettoppo95@gmail.com', 'jh-00ab-9876', 'ranchi', 'dhanbad', '2017-04-01', '4', 8089709158),
-(86, 'rjrahulabc30@gmail.com', 'jh-32ds-4554', 'kappad', 'trichur', '2017-06-21', '4', 9080067676),
-(87, 'rahulraj30abc@gmail.com', 'jh-32ds-4555', 'mumbai', 'chennai', '2017-06-21', '5', 9080067676);
+(91, 'rjrahulabc30@gmail.com', 'cc-00xx-1232', 'delhi', 'kolkata', '2019-02-12', '5', 919061543942),
+(92, 'rjrahulabc30@gmail.com', 'jh-23sd-1232', 'Kolkata, West Ben', 'Delft, Netherlands', '2018-03-02', '4', 9876567890),
+(93, 'rahulnitc3003@gmail.com', 'Jh-32br1234', 'Delhi Cantt, New Delhi, Delhi, India', 'Kolkata, West Bengal, India', '2017-10-02', '5', 7250947009);
 
 -- --------------------------------------------------------
 
@@ -262,43 +187,10 @@ INSERT INTO `ride` (`ride_id`, `email`, `source`, `destination`, `seats_book`, `
 (79, 'aman@gmail.com', 'allahabad', 'bihar', 2, '2019-06-09', 37, 8844556612),
 (84, 'aman@gmail.com', 'allahabad', 'bihar', 4, '2019-06-09', 37, 8844556612),
 (85, 'aman@gmail.com', 'allahabad', 'bihar', 4, '2019-06-09', 37, 8844556612),
-(86, 'aman@gmail.com', 'patna', 'delhi', 2, '2017-03-27', 34, 7845123691),
-(87, 'aman@gmail.com', 'patna', 'delhi', 1, '2017-03-27', 34, 7845123691),
-(88, 'aman@gmail.com', 'patna', 'delhi', 1, '2017-03-27', 34, 9061586987),
-(89, 'adhisingh@nitt.ac.in', 'kk', 'pb', 1, '2017-03-31', 5, 8766767767),
-(90, 'rannasingh@gmail.com', 'skp', 'pnbe', 4, '2017-03-31', 35, 9789978978),
-(91, 'rannasingh@gmail.com', 'kk', 'pb', 1, '2017-03-31', 5, 8766767767),
 (98, 'jyotipandey631.jp@gmail.com', 'Delhi', 'Mumbai', 3, '2019-01-01', 48, 9123456789),
-(99, 'avnishagr@gmail.com', 'Allahabad', 'Delhi', 3, '2018-01-01', 40, 8678659432),
 (103, 'cde@gmail.com', 'Allahabad', 'Delhi', 4, '2018-01-01', 40, 8759685698),
-(114, 'avnishagr@gmail.com', 'kasmir', 'chennai', 5, '2019-06-09', 59, 8574778572),
-(115, 'avnishagr@gmail.com', 'kasmir', 'chennai', 4, '2019-06-09', 59, 8574778572),
-(116, 'avnishagr@gmail.com', 'kasmir', 'chennai', 3, '2019-06-09', 59, 8574778572),
-(117, 'avnishagr@gmail.com', 'kasmir', 'chennai', 5, '2019-06-09', 59, 8574778572),
-(119, 'avnishagr@gmail.com', 'kasmir', 'chennai', 1, '2019-06-09', 59, 8574778572),
-(120, 'rahulnitc3003@gmail.com', 'delhi', 'kolkata', 3, '2017-03-31', 4, 9789978978),
-(121, 'sumeettoppo95@gmail.com', 'delhi', 'kolkata', 5, '2017-03-31', 4, 9806587096),
-(122, 'rahulnitc3003@gmail.com', 'kk', 'jsr', 3, '2017-03-30', 1, 9806587096),
-(125, '20raushanaryan@gmail.com', 'Azamgarh', 'Allahabd', 2, '2017-04-29', 58, 9061543942),
-(126, '20raushanaryan@gmail.com', 'Azamgarh', 'Allahabd', 2, '2017-04-29', 58, 9061543942),
-(127, '20raushanaryan@gmail.com', 'Azamgarh', 'Allahabd', 2, '2017-04-29', 58, 9061543945),
-(128, '20raushanaryan@gmail.com', 'mumbai', 'kanpur', 2, '2017-04-27', 46, 9061543941),
 (131, 'vaibhavvp71@gmail.com', 'Delhi', 'Goa', 2, '2017-11-11', 62, 8089128372),
-(132, 'vksingh@gmail.com', 'kk', 'pb', 3, '2017-03-31', 5, 9087007807),
-(133, 'rannasingh@gmail.com', 'Delhi', 'Goa', 4, '2017-11-11', 62, 9061543942),
-(134, 'rannasingh@gmail.com', 'kk', 'pb', 1, '2017-03-31', 5, 9009878978),
-(135, 'rannasingh@gmail.com', 'kk', 'pb', 2, '2017-03-31', 5, 9089887678),
-(138, 'rannasingh@gmail.com', 'oo', 'pp', 1, '2017-04-22', 8, 9098765432),
-(139, 'raushan@yahaoo.com', 'oo', 'pp', 1, '2017-04-22', 8, 9087654321),
-(140, '66vermaharsh@gmail.com', 'CALICUT', 'KOCHI', 5, '2017-04-20', 77, 9090909090),
-(141, 'sruthi@gmail.com', 'CALICUT', 'KOCHI', 3, '2017-04-20', 77, 9090909090),
-(142, 'toppo@gmail.com', 'delhi', 'kota', 1, '2017-09-09', 78, 8089709158),
-(143, 'toppo@gmail.com', 'delhi', 'kota', 1, '2017-04-01', 79, 8089709158),
-(144, 'toppo@gmail.com', 'delhi', 'kota', 2, '2017-04-01', 79, 8089709158),
-(147, '66vermaharsh@gmail.com', 'ranchi', 'dhanbad', 1, '2017-04-01', 83, 8089709158),
-(149, 'sarveshsingh@gmail.com', 'delhi', 'ladak', 2, '2017-04-21', 12, 9098678976),
-(150, 'sarveshsingh@gmail.com', 'CLT', 'BNG', 5, '2017-04-05', 10, 9098678976),
-(151, 'abc@gmail.com', 'skp', 'gaya', 1, '2017-03-31', 65, 9098098986);
+(142, 'toppo@gmail.com', 'delhi', 'kota', 1, '2017-09-09', 78, 8089709158);
 
 -- --------------------------------------------------------
 
@@ -384,17 +276,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 --
 -- AUTO_INCREMENT for table `journey`
 --
 ALTER TABLE `journey`
-  MODIFY `journey_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `journey_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT for table `ride`
 --
 ALTER TABLE `ride`
-  MODIFY `ride_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `ride_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 --
 -- AUTO_INCREMENT for table `user`
 --

@@ -34,17 +34,18 @@ padding-top : 120px;
 <div id="templatemo_mobile_menu">
   <ul class="nav nav-pills nav-stacked">
     <li>
-      <a rel="nofollow" href="search_panal.php" class="external-link">
+      <a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
       <i class="glyphicon glyphicon-export"></i>Modify Search</a>
     </li>
     <li>
-      <a rel="nofollow" href="passenger_panal.php" class="external-link">
-      <i class="glyphicon glyphicon-export"></i>HomePage</a>
+      <a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
+      <i class="glyphicon glyphicon-export"></i>Back</a>
     </li>
     <li>
       <a rel="nofollow" href="../logout.php" class="external-link">
       <i class="glyphicon glyphicon-export"></i>Logout</a>
     </li>
+    <li><a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
   </ul>
 </div>
 <div class="container_wapper">
@@ -55,12 +56,12 @@ padding-top : 120px;
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
           <li>
-            <a rel="nofollow" href="search_panal.php" class="external-link">
+            <a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
             <i class="glyphicon glyphicon-export"></i>Modify Search</a>
           </li>
           <li>
-            <a rel="nofollow" href="passenger_panal.php" class="external-link">
-            <i class="glyphicon glyphicon-export"></i>HomePage</a>
+            <a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
+            <i class="glyphicon glyphicon-export"></i>Back</a>
           </li>
           <li>
             <a rel="nofollow" href="../logout.php" class="external-link">
@@ -102,6 +103,7 @@ padding-top : 120px;
         
     include 'database.php';
     $db=new db();
+    $email = $_GET['email'];
 	$source=$_POST['src'];
 	$desti=$_POST['dest'];
 	$dateofjour=$_POST['doj'];
@@ -131,7 +133,7 @@ padding-top : 120px;
         <!--td--><!--?php echo $post1["mobno"] ?></td-->
  
         <td>
-        <a href="carowner_profile.php?id=<?php echo $post1["journey_id"]; ?>">
+        <a href="carowner_profile.php?id=<?php echo $post1["journey_id"];?>&email=<?php echo @$_GET['email']; ?>">
           <button class="btn btn-info-default" name="submit" value="submit" type="submit" >View Details</button>
         </a>
         </td>
@@ -141,7 +143,7 @@ padding-top : 120px;
       if($i==0)
       {
         echo "<script>alert('Search Not Founded')</script>";
-        echo "<script>window.open('search_panal.php','_self')</script>";
+        echo "<script>window.open('search_panal.php?email=$email','_self')</script>";
         exit(0);
       }
       ?>
@@ -149,7 +151,7 @@ padding-top : 120px;
     </div>
   </div>
 </div>
-<!--script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
 <script src="../../js/index.js"></script>
@@ -160,6 +162,6 @@ padding-top : 120px;
 <script src="../../js/jquery.singlePageNav.min.js"></script>
 <script src="../../js/unslider.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-<script src="../../js/templatemo_script.js"></script-->
+<script src="../../js/templatemo_script.js"></script>
 </body>
 </html>

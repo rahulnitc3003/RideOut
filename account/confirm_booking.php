@@ -22,7 +22,8 @@
 <div id="templatemo_mobile_menu">
             <ul class="nav nav-pills nav-stacked">
                  <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+                 <li><a rel="nofollow" href="confirm_booking.php?id=<?php echo @$_GET['id']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
             </ul>
 </div>
 <div class="container_wapper">

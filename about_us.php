@@ -109,10 +109,11 @@ if ($gClient->getAccessToken()) {
     <li><a rel="nofollow" href="about_us.php" class="external-link">
         <i class="glyphicon glyphicon-list"></i>About Us</a>
     </li>
-    <li><a rel="nofollow" href="contact_us.html" class="external-link">
+    <li><a rel="nofollow" href="contact_us.php" class="external-link">
         <i class="glyphicon glyphicon-phone-alt"></i>Contact Us</a>
     </li>
     <li><a rel="nofollow" href="our_team.html" class="external-link"><i class="glyphicon glyphicon-user"></i>Our Team</a></li>
+    <li><a rel="nofollow" href="about_us.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
     <li>
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#f15556">
@@ -132,14 +133,14 @@ if ($gClient->getAccessToken()) {
   <div id="templatemo_banner_menu">
     <div class="container-fluid">
       <div class="col-xs-4 templatemo_logo">
-         <a href="index.php"><img src="images/logo.png" class="img-responsive" id="logo_img" title="Car Ride" /></a>
+         <a href="index.php"><img src="images/logo.png" id="logo_img" title="Car Ride" /></a>
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
           <li><a rel="nofollow" href="index.php" class="external-link"><i class="glyphicon glyphicon-home"></i>Home</a></li>
           <li><a rel="nofollow" href="about_us.php" class="external-link"><i class="glyphicon glyphicon-list"></i>
               About Us</a></li>
-          <li><a rel="nofollow" href="contact_us.html" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
+          <li><a rel="nofollow" href="contact_us.php" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
               Contact Us</a></li>
           <li><a rel="nofollow" href="our_team.html" class="external-link"><i class="glyphicon glyphicon-user"></i>
               Our Team</a></li>
@@ -225,7 +226,7 @@ if ($gClient->getAccessToken()) {
     <div class="col-sm-4">
       <p class="text-center"><strong>Reliability</strong></p><br>
       <a href="#demo2" data-toggle="collapse">
-        <img src="images/aimg2.png" class="img-circle person" alt="Random Name" width="255" height="255">
+        <img src="images/aimg2.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
       <div id="demo2" class="collapse">
         <p>RideOut provides with the facility of reliability.

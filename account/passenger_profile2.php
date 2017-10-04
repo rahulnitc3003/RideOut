@@ -22,13 +22,14 @@
     <ul class="nav nav-pills nav-stacked">
     	<li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
         <li><a rel="nofollow" href="booking_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-        <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+        <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+        <li><a rel="nofollow" href="passenger_profile2.php?id=<?php echo @$_GET['id']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
     </ul>
 </div>
 <div class="container_wapper">
   <div id="templatemo_banner_menu">
     <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
+      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="RideOut System" title="Car Ride" /></a>
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
@@ -75,10 +76,10 @@ $email = @$_GET['id'];
 	{
     ?>
     <div class="container">
-      <div class="table-responsive">
+      <!--div class="table-responsive"-->
         <table class="table table-bordered">
             <tr>
-                <td align="center" colspan="4"><h2><b>Co-Passenger Details</b><h2></td>
+                <td align="center" colspan="2"><h2><b>Co-Passenger Details</b><h2></td>
             </tr>
             <tr>
                 <td align="center"><h4><b>First Name:</b></h4></td>
@@ -113,4 +114,16 @@ $email = @$_GET['id'];
 	?>
     </div>
   </body>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
+<script src="../../js/index.js"></script>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/jquery.singlePageNav.min.js"></script>
+<script src="../../js/unslider.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="../../js/templatemo_script.js"></script>
 </html>

@@ -275,9 +275,11 @@ class db
             $result1 = $this->conn->query($sql1);
             if($result1->num_rows > 0)
 		    {
-            	echo "<script>alert('Welcome')</script>"; 
-                echo "<script>window.open('passenger_panal.php?email=$email','_self')</script>";
-        	}
+            	echo '<script type="text/javascript">'; 
+                echo 'alert("Welcome");'; 
+                echo 'window.location.href = "passenger_panal.php";';
+                echo '</script>';
+            }
             else
             {
             	echo "<script>alert('Wrong password! Try again')</script>";
@@ -286,7 +288,7 @@ class db
         else
         {
        	 echo "<script>alert('Not Registered !! Please SignUp .')</script>";   
-        }
+        }	
 	}
 
     //--------forget password-----------
@@ -400,28 +402,7 @@ class db
 			//echo "<script>alert('You have already confirmed your journey !!')</script>";
 		      return 1;
 		}
-	}
-	public function profile($email)
-	{
-		$array= array();
-		$sql="select *from copassenger where email = '$email'";
-		$result = mysqli_query($this->conn,$sql);
 		
-		while($row = $result->fetch_assoc())
-		{
-			$array[]=$row;
-		}
-		return $array;	
-	}
-
-	public function change_password($email,$old_pass,$new_pass)
-	{
-		$sql="update copassenger set password = '$new_pass' where email = '$email' and password = '$old_pass'";
-		$result =$this->conn->query($sql);
-		if($result)
-		  return 1;
-		else
-		  return 0;
 	}
 }
 ?>

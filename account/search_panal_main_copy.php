@@ -65,74 +65,10 @@ padding-top : 150px;
  background-image: url("../images/image2.jpg");
 }
 </style>
-
-<!-- google map api start here-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOs735Nv4ymhLSmNDvkpK3NRCEOOvKlyg&libraries=places&callback=initMap" async defer>
-</script>
-<script>
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      mapTypeControl: false,
-      center: {
-        lat: -33.8688,
-        lng: 151.2195
-      },
-      zoom: 13
-    });
-
-    new AutocompleteDirectionsHandler(map);
-  }
-
-function AutocompleteDirectionsHandler(map) {
-  this.map = map;
-  this.originPlaceId = null;
-  this.destinationPlaceId = null;
-  this.travelMode = 'WALKING';
-  var originInput = document.getElementById('origin-input');
-  var destinationInput = document.getElementById('destination-input');
-  var modeSelector = document.getElementById('mode-selector');
-  this.directionsService = new google.maps.DirectionsService;
-  this.directionsDisplay = new google.maps.DirectionsRenderer;
-  this.directionsDisplay.setMap(map);
-
-  var originAutocomplete = new google.maps.places.Autocomplete(
-    originInput, {
-      placeIdOnly: true
-    });
-  var destinationAutocomplete = new google.maps.places.Autocomplete(
-    destinationInput, {
-      placeIdOnly: true
-    });
-
-  this.setupClickListener('changemode-walking', 'WALKING');
-  this.setupClickListener('changemode-transit', 'TRANSIT');
-  this.setupClickListener('changemode-driving', 'DRIVING');
-
-  this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
-  this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-
-  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
-}
-
-// Sets a listener on a radio button to change the filter type on Places
-// Autocomplete.
-AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
-  var radioButton = document.getElementById(id);
-  var me = this;
-  radioButton.addEventListener('click', function() {
-    me.travelMode = mode;
-    me.route();
-  });
-};
-</script>
-<!-- google map api closed here-->
-
 <div id="set">
   <div class="container">
     <form class="form-horizontal" method="POST" action="displaysearch.php?email=<?php echo @$_GET['email']; ?>">
-	<div class="col-xs-12">
+	<div class="col-sm-10">
            <div class="table-responsive">
 		<table class="table" border="5">	
 			<tr align="center">
@@ -140,19 +76,12 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) 
 			</tr>
 			
 			<tr>
-        <div id="map"></div>
 				<td>Source</td>
-				<td>
-          <input id="origin-input" type="text" class="form-control" id="src" name="src" required placeholder="Enter Source" />
-          <!--input type="text" class="form-control" id="src" name="src" required /-->
-        </td>
+				<td><input type="text" class="form-control" id="src" name="src" required /></td>
 			</tr>
 			<tr>
 				<td>Destination</td>
-				<td>
-          <input id="destination-input"  type="text" class="form-control" id="dest" name="dest" required placeholder="Enter Destination" />
-          <!--input type="text" class="form-control" id="dest" name="dest" required /-->
-        </td>
+				<td><input type="text" class="form-control" id="dest" name="dest" required /></td>
 			</tr>
 			<tr>
 				<td>Date Of Journey</td>

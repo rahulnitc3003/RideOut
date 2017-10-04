@@ -1,15 +1,19 @@
 <?php
+//Include GP config file && User class
 include_once '../gpConfig.php';
 include_once '../User.php';
+
 if(isset($_GET['code'])){
     $gClient->authenticate($_GET['code']);
     $_SESSION['token'] = $gClient->getAccessToken();
     header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
     //header('Location: login_panal.html');
 }
+
 if (isset($_SESSION['token'])) {
     $gClient->setAccessToken($_SESSION['token']);
 }
+
 if ($gClient->getAccessToken()) {
     //Get user profile data from google
     $gpUserProfile = $google_oauthV2->userinfo->get();
@@ -33,12 +37,10 @@ if ($gClient->getAccessToken()) {
     
     //Storing user data into session
     $_SESSION['userData'] = $userData;
-    
     //Render facebook profile data
     if(!empty($userData)){
 		$var=$userData['email'];
-    }
-    else{
+    }else{
         $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
     }
 } else {
@@ -46,6 +48,7 @@ if ($gClient->getAccessToken()) {
     $output = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="images/glogin.png" alt=""/></a>';
 }
 ?>
+   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,9 +72,10 @@ if ($gClient->getAccessToken()) {
 <!--navigation menu start here-->
 <div id="templatemo_mobile_menu">
             <ul class="nav nav-pills nav-stacked">
-                <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-                <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-                <li><a rel="nofollow" href="booking_panal.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
+                 <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+                 <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
+                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+                 <li><a rel="nofollow" href="add_journey.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
             </ul>
 </div>
 <div class="container_wapper">
@@ -82,6 +86,7 @@ if ($gClient->getAccessToken()) {
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
           <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+          <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
           <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
         </ul>
       </div>
@@ -89,107 +94,76 @@ if ($gClient->getAccessToken()) {
     </div>
   </div>
 </div>
-<!--navigation menu end here-->
 
+
+<!--navigation menu end here-->
 <style>
-  #set{
-  padding-top : 150px;
+#set{
+padding-top : 150px;
+}
+.container{
+ background-image: url("../images/image2.jpg");
 }
 </style>
 
+<!--navigation menu end here-->
 <div id="set">
   <div class="container">
-  <div class="table-responsive">
-   <form class="form-horizontal" method="POST" action="booking_panal.php">
-    <table class="table" border="2">
-     <tr>
-       <td align="center" colspan="2"><h3>Booking Status<h3></td>
-     </tr>
-     <tr>
-       <td>Select Journey Id</td>
-       <td><select class="form-control" id="journeyid" name="journeyid">
-            <?php
-            include 'database.php';
-            $db=new db();
-            $postdata=$db->update('journey',$var);
-            $i=0;
-          	foreach($postdata as $post)
-          	{
-                   $i++;
-          		?>
-              <option><?php echo $post["journey_id"];?></option>
-              <?php
-          	}
-                if($i==0)
-                {
-                   echo "<script>alert('No Any Journey is Added')</script>";
-                   echo "<script>window.open('login_panal.php','_self')</script>";
-                   exit(0);
-                }
-            ?>	
-          </select>
-          <script type="text/javascript">
-            document.getElementById('journeyid').value = "<?php echo $_POST['journeyid'];?>";
-          </script>
-         </td>
+    <form class="form-horizontal" method="POST" action="add_journey.php">
+     <table class="table" border="5">
+        <tr>
+          <td colspan="2" align="center"><h3>Post Your Journey</h3></td>
         </tr>
         <tr>
-          <td align="center" colspan="2"><button class="btn btn-default " name="submit1" value="Update" type="submit" >submit</button></td>
+          <td>Email</td>   
+          <td><input type="gmail" class="form-control" id="src" name="src" value="<?php echo $var ?>" readonly>
+          </td>
+        </tr> 
+        
+        <tr>
+          <td>Car Number</td>   
+          <td><input type="text" class="form-control" id="carno" style="width:10" name="carno" required pattern="^[A-Za-z]{2}([ \-])[0-9]{2}[A-ZAa-z0-9]{1,2}[A-Za-z]\1[0-9]{4}$" placeholder="Format {XX-00XX-0000}">
+          </td>
         </tr>
-      </table>
+        <tr>
+          <td>Source</td>   
+          <td><input type="text" class="form-control" id="src" name="src" required placeholder="Source Location">
+          </td>
+        </tr>
+        <tr>
+          <td>Destination</td>   
+          <td><input type="text" class="form-control" id="dest" name="dest" required placeholder="Destination Location">
+          </td>
+        </tr>
+        <tr>
+           <td>Date Of Journey</td>
+	   <td>
+	    <div class='input-group date' id='datetimepicker1'>
+	     <input type='text' class="form-control" name="doj" placeholder=year/mm/dd />
+	     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+	    </div>
+	   </td>
+        </tr>
+        <tr>
+          <td>Available Seats</td>   
+          <td><input type='text' class="form-control" name="seat" required placeholder="Upto 5 seats" pattern="[1-5]{1}" />
+          </td>
+        </tr>
+        <tr>
+          <td>Mobile Number</td>   
+          <td><input type='text' class="form-control" name="mobno" required placeholder="Valid Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="text-center"><button class="btn btn-danger" name="submit" value="submit" type="submit" >submit</button>
+            </div>
+          </td>
+        </tr>
+     </table>
     </form>
-    </div>
-  <div class="table-responsive">
-     <table class="table" border="2">
-       <tr>
-          <td align="center" colspan="8"><h3>Booking Status<h3></td>
-       </tr>
-        <tr align="center">
-          <td><h4><b>Ride id</b></h4></td>
-          <td><h4><b>Email</b></h4></td>
-          <td><h4><b>Source</b></h4></td>
-          <td><h4><b>Destination</b></h4></td>
-          <td><h4><b>Booking Seats<b></h4></td>
-          <td><h4><b>Journey Date</b></h4></td>
-          <td><h4><b>Mobile Number</b></h4></td>
-          <td><h4><b>Profile</b></h4></td>
-        </tr>
-        <?php
-          $db=new db();
-          if(isset($_POST['submit1']))
-          {
-            $journeyidi=$_POST['journeyid'];
-
-            
-            $postdata1=$db->booking_status($journeyidi);
-            $i=0;
-            foreach($postdata1 as $post1)
-            {
-              $i++;
-              ?>
-              <tr align="center">
-                <td><?php echo $post1["ride_id"]; ?></td>
-                <td><?php echo $post1["email"]; ?></td>
-                <td><?php echo $post1["source"]; ?></td>
-                <td><?php echo $post1["destination"]; ?></td>
-                <td><?php echo $post1["seats_book"]; ?></td>
-                <td><?php echo $post1["doj"]; ?></td>
-                <td><?php echo $post1["mobno"]; ?></td>
-                <td><a href='passenger_profile2.php?id=<?php echo $post1["email"]; ?>'><input type="button" value="Check Profile" /></a></td>
-              <tr>
-            <?php
-            }
-            if($i==0)
-            {
-              echo "<script>alert('No Booking Found For Your Journey Id')</script>";
-              //exit(0);
-            }
-          }
-        ?>
-      </table>
    </div>
   </div>
- </div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
@@ -202,5 +176,58 @@ if ($gClient->getAccessToken()) {
 <script src="../js/unslider.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="../js/templatemo_script.js"></script>
+
 </body>
 </html>
+
+<?php
+
+include 'database.php';
+$db=new db();
+//echo $var;
+$date1 = date("Y-m-d");
+if(isset($_POST['submit']))
+{
+    
+	$carnum=$_POST['carno'];
+	$source=$_POST['src'];
+	$desti=$_POST['dest'];
+	$dateofjour=$_POST['doj'];
+	$seats=$_POST['seat'];
+        $mobno=$_POST['mobno'];
+      if($source == $desti)
+      {
+        echo "<script>alert('Source And Destination Can Not Be Equal')</script>";
+        exit(0);
+      }
+      if($dateofjour <= $date1)
+      {
+        echo "<script>alert('Current Or Previous Date Can not Be Entered')</script>";
+        exit(0);
+      }
+      if($seats == 0)
+      {
+        echo "<script>alert('Seat Number Can Not Be Zero')</script>";
+        exit(0);
+      }
+      if($mobno == "")
+      {
+        echo "<script>alert('Enter Mobile Number')</script>";
+        exit(0);
+      }
+//bug corrected code
+$ans=$db->validate($carnum,$dateofjour);
+	if($ans==1)
+	{
+		echo "<script>alert('Entered Car Is Already Booked ! Please Choose A Different Car ! ')</script>";
+                exit(0);
+
+	}
+else
+{
+	$sql="insert into journey (email,car_no,source,destination,doj,seats_avail,mobno) values ('$var','$carnum','$source','$desti','$dateofjour','$seats','$mobno')";
+	$db->insert($sql);
+	
+}	
+}
+?>

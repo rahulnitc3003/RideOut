@@ -76,7 +76,9 @@ if ($gClient->getAccessToken()) {
 <div id="templatemo_mobile_menu">
             <ul class="nav nav-pills nav-stacked">
                  <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+                 <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+                 <li><a rel="nofollow" href="update_journey.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
             </ul>
 </div>
 <div class="container_wapper">
@@ -166,21 +168,21 @@ if ($gClient->getAccessToken()) {
                  <td>Car Number</td>
                  <td>
                    <input type="text" class="form-control" id="carno" style="width:10" name="carno" value="<?php echo $post1["car_no"]?>"
-     required pattern="^[A-Za-z]{2}([ \-])[0-9]{2}[A-ZAa-z0-9]{1,2}[A-Za-z]\1[0-9]{4}$" placeholder="Enter Car Number [ Format {XX-00XX-0000}]">
+     required pattern="^[A-Za-z]{2}([ \-])[0-9]{2}[A-ZAa-z0-9]{1,2}[A-Za-z]\1[0-9]{4}$" placeholder="Format {XX-00XX-0000}">
                  </td>
                </tr>
                <tr>
                  <td>Source</td>
                  <td>
                    <input type="text" class="form-control" id="src" name="src" value="<?php echo $post1["source"]?>"
- required placeholder="Enter Source Location">
+ required placeholder="Source Location">
                  </td>
                </tr>
                <tr>
                  <td>Destination</td>
                  <td>
                    <input type="text" class="form-control" id="dest" name="dest" value="<?php echo $post1["destination"]?>"
- required placeholder="Enter Destination Location" />
+ required placeholder="Destination Location" />
                  </td>
                </tr>
                <tr>
@@ -196,14 +198,14 @@ if ($gClient->getAccessToken()) {
                  <td>Available Seats</td>
                  <td>
                    <input type='text' class="form-control" name="seat" value="<?php echo $post1["seats_avail"]?>"
-          required placeholder="Enter Seats Number[ 1 to 5 ]" pattern="[0-5]" />
+          required placeholder="[ 1 to 5 ]" pattern="[0-5]" />
                  </td>
                </tr>
                <tr>
                  <td>Mobile Number</td>
                  <td>
                    <input type='text' class="form-control" name="mobno" value="<?php echo $post1["mobno"]?>"
-          required placeholder="Enter Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" />
+          required placeholder="Indian Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" />
                  </td>
                </tr>
                <tr>

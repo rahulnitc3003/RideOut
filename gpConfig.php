@@ -10,7 +10,7 @@ include_once 'src/contrib/Google_Oauth2Service.php';
  */
 $clientId = '45738992287-oepuo6972ukl64iru9vo9uud8hf5c4cr.apps.googleusercontent.com'; //Google client ID
 $clientSecret = 'yg5Q5UxsJm46MSHLyOOPvnyK'; //Google client secret
-$redirectURL = 'https://rideoutsys.000webhostapp.com/'; //Callback URL
+$redirectURL = 'https://rideout.000webhostapp.com/'; //Callback URL
 
 //Call Google API
 $gClient = new Google_Client();

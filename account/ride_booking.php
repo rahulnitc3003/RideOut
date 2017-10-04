@@ -29,8 +29,9 @@ if(!$_SESSION['email'])
 <!--navigation menu start here-->
 <div id="templatemo_mobile_menu">
   <ul class="nav nav-pills nav-stacked">
-    <li><a rel="nofollow" href="passenger_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+    <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
     <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+    <li><a rel="nofollow" href="ride_booking.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
   </ul>
 </div>
 <div class="container_wapper">
@@ -40,7 +41,7 @@ if(!$_SESSION['email'])
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="passenger_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+          <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
           <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
         </ul>
       </div>
@@ -56,27 +57,28 @@ if(!$_SESSION['email'])
 </style>
 <div id="set">
   <div class="container">
-    <form action ="ride_booking.php" method="post">
+    <form action ="ride_booking.php?email=<?php echo @$_GET['email']; ?>" method="post">
       <table class="table" border="5">
         <tr>
           <td colspan="2" align="center"><h3>Booking Ride</h3></td>
         </tr>
         <tr>
           <td>Journey Id</td>   
-          <td><input type="text" class="form-control" id="jid" name="jid" required placeholder="Enter Journey Id in digits only" pattern="^[0-9]*$" />
+          <td><input type="text" class="form-control" id="jid" name="jid" required placeholder="Enter Only Digits" pattern="^[0-9]*$" />
           </td>
 <script type="text/javascript">
                  document.getElementById('jid').value = "<?php echo $_POST['jid'];?>";
                 </script>
         </tr>
         <tr>
-         <td align="center" colspan="2"><button class="btn btn-danger" name="submit" value="submit" type="submit" >Details</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="search_panal.php">Don't Know Journey id</a>
+         <td align="center" colspan="2"><button class="btn btn-danger" name="submit" value="submit" type="submit" >Details</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="search_panal.php?email=<?php echo @$_GET['email']; ?>">Don't Know Journey id</a>
          </td>
         </tr>
         <tr>
           <?php
           include 'database.php';
           $db=new db();
+          $email = $_GET['email'];
           if(isset($_POST['submit']))
           {
             $jid=$_POST['jid'];
@@ -108,11 +110,11 @@ if(!$_SESSION['email'])
           </tr>
           <tr>
             <td>Required Seats</td>
-            <td><input type='text' class="form-control" name="seat" required placeholder="Enter Required Seats [1 to 5]" pattern="[1-5]" /></td>
+            <td><input type='text' class="form-control" name="seat" required placeholder="1 to 5" pattern="[1-5]" /></td>
           </tr>
           <tr>
             <td>Mobile Number</td>
-            <td><input type='text' class="form-control" name="mobno" required placeholder="Enter Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" /></td>
+            <td><input type='text' class="form-control" name="mobno" required placeholder="Valid Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" /></td>
           </tr>
           <tr>
             <td colspan="2" align="center">
@@ -120,11 +122,11 @@ if(!$_SESSION['email'])
             </td>
           </tr>
           <?php
-              }
+             }
               if($i==0)
-                    {
+                    {   
                         echo "<script>alert('Journey Id Not Found ! Search Your Journey Id')</script>";
-                        echo "<script>window.open('search_panal.php','_self')</script>";
+                        echo "<script>window.open('search_panal.php?email=$email','_self')</script>";
                         exit(0);
                     }
             }

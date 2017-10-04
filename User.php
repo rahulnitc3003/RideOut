@@ -1,9 +1,9 @@
 <?php
 class User {
     private $dbHost     = "localhost";
-    private $dbUsername = "id1151417_rideout";
+    private $dbUsername = "id1068737_rideout";
     private $dbPassword = "rideout";
-    private $dbName     = "id1151417_rideout";
+    private $dbName     = "id1068737_rideout";
     private $userTbl    = 'carowner';
     
     function __construct(){

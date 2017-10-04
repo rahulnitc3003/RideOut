@@ -70,7 +70,8 @@ if ($gClient->getAccessToken()) {
 <div id="templatemo_mobile_menu">
   <ul class="nav nav-pills nav-stacked">
     <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-    <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+    <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+    <li><a rel="nofollow" href="confirm_booking_panal.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
   </ul>
 </div>
 <div class="container_wapper">
@@ -177,8 +178,8 @@ if ($gClient->getAccessToken()) {
           <td><?php echo $post1["seats_book"]; ?></td>
           <td><?php echo $post1["doj"]; ?></td>
           <td><?php echo $post1["mobno"]; ?></td>
-          <td><button><a href='passenger_profile.php?id=<?php echo $post1["email"]; ?>'>Check Profile</button></a></td>
-          <td><button><a href='confirm_booking.php?id=<?php echo $post1["ride_id"]; ?>'>Confirm</button></td>
+          <td><a href='passenger_profile.php?id=<?php echo $post1["email"]; ?>'><input type="button" value="Check Profile" /></a></td>
+          <td><a href='confirm_booking.php?id=<?php echo $post1["ride_id"]; ?>'><input type="button" value="Confirm" /></a></td>
         <tr>
       <?php
       }
@@ -194,12 +195,17 @@ if ($gClient->getAccessToken()) {
    </div>
   </div>
  </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.singlePageNav.min.js"></script>
-<script src="js/unslider.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
+<script src="../js/index.js"></script>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.singlePageNav.min.js"></script>
+<script src="../js/unslider.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-<script src="js/templatemo_script.js"></script>
+<script src="../js/templatemo_script.js"></script>
 </body>
 </html>

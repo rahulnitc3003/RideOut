@@ -29,18 +29,19 @@ if(!$_SESSION['email'])
 <!--navigation menu start here-->
 <div id="templatemo_mobile_menu">
             <ul class="nav nav-pills nav-stacked">
-                 <li><a rel="nofollow" href="passenger_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
-                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+                 <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+                 <li><a rel="nofollow" href="booking_status.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
             </ul>
 </div>
 <div class="container_wapper">
   <div id="templatemo_banner_menu">
     <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
+      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="RideOut System" title="Car Ride" /></a>
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="passenger_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
+          <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
           <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
         
         </ul>
@@ -65,7 +66,7 @@ if(!$_SESSION['email'])
 <div id="set">
   <div class="container">
   <div class="col-sm-6">
-   <form class="form-horizontal" method="POST" action="booking_status.php">
+   <form class="form-horizontal" method="POST" action="booking_status.php?email=<?php echo @$_GET['email']; ?>">
     <table class="table" border="2">
       <tr>
         <td colspan="2" align="center"><h3>Booking Status</h3></td>
@@ -89,7 +90,7 @@ if(!$_SESSION['email'])
              if($i==0)
              {
               echo "<script>alert('You Have Not Added Any Journey')</script>";
-              echo "<script>window.open('passenger_panal.php','_self')</script>";
+              echo "<script>window.open('passenger_panal.php?email=$_GET[email]','_self')</script>";
               exit(0);
              }
            ?>	

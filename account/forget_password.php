@@ -23,14 +23,9 @@ session_start();
   <style>
     *,
     *:before,
-    *:after {
-      box-sizing: border-box;
-    }
-
-    h4,h1 {
-      color: black;
-    }
-   .container {
+    *:after {box-sizing: border-box;}
+    h4,h1 {color: black;}
+    .container {
       max-width: 38em;
       padding: 1em 3em 2em 3em;
       margin: 0em auto;
@@ -38,33 +33,25 @@ session_start();
       border-radius: 4.2px;
       box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
     }
-    .row {
-      zoom: 1;
-    }
+    .row {zoom: 1;}
     .row:before,
     .row:after {
       content: "";
       display: table;
     }
-    .row:after {
-      clear: both;
-    }
+    .row:after {clear: both;}
     .col-half {
       padding-right: 10px;
       float: left;
       width: 50%;
     }
-    .col-half:last-of-type {
-      padding-right: 0;
-    }
+    .col-half:last-of-type {padding-right: 0;}
     .col-third {
       padding-right: 10px;
       float: left;
       width: 33.33333333%;
     }
-    .col-third:last-of-type {
-      padding-right: 0;
-    }
+    .col-third:last-of-type {padding-right: 0;}
     @media only screen and (max-width: 540px) {
       .col-half {
         width: 100%;
@@ -76,20 +63,23 @@ session_start();
 
   <!--navigation menu start here-->
   <div id="templatemo_mobile_menu">
-              <ul class="nav nav-pills nav-stacked">
-                   <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
-                   <li><a rel="nofollow" href="copassenger_signup.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Sign Up</a></li>
-                   <li><a rel="nofollow" href="copassenger_login.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-              </ul>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
+      <li><a rel="nofollow" href="copassenger_login.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Login</a></li>
+      <li><a rel="nofollow" href="copassenger_signup.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Sign Up</a></li>
+<li><a rel="nofollow" href="forget_password.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
+    </ul>
   </div>
+
   <div class="container_wapper">
     <div id="templatemo_banner_menu">
       <div class="container-fluid">
-        <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="Rideout System" title="Car Ride" /></a>
+        <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
         </div>
         <div class="col-sm-8 hidden-xs">
           <ul class="nav nav-justified">
             <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
+            <li><a rel="nofollow" href="copassenger_login.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Login</a></li>
             <li><a rel="nofollow" href="copassenger_signup.php" class="external-link"><i class="glyphicon glyphicon-export"></i>SignUp</li>
           </ul>
         </div>
@@ -101,14 +91,12 @@ session_start();
 
   <div id="set">
     <div class="container">
-      <form class="form-horizontal" method="POST" action="copassenger_login.php">
+      <form class="form-horizontal" method="POST" action="forget_password.php">
         <div class="row">
-          <center><h1>Login Form</h1></center><br>
-          <h4>User Email</h4><input type="gmail" class="form-control" id="src" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Valid Email"></br>
-          <h4>Password</h4><input type="password" class="form-control" id="pass" name="pass" required placeholder="[Minimum 6 Characters]" pattern="^.{6,35}$"></br>
+          <center><h4>Forget Password</h4></center><br>
+          <h4>User Email</h4><input type="gmail" class="form-control" id="src" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Valid Email"></br>
           <div class="text-center">
-            <button class="btn btn-danger " name="submit" value="submit" type="submit" >Login</button>
-    		    <h4><span class="glyphicon glyphicon-hand-right"></span><a href="forget_password.php">&nbsp;Forget Password</a></h4>
+            <button class="btn btn-danger " name="submit" value="submit" type="submit" >Reset Password</button>
           </div>
         </div>
       </form>
@@ -137,10 +125,8 @@ if(isset($_POST['submit']))
 {
     $a1=$_SESSION['email']=$_POST['email'];
     $emailid=$_POST['email'];
-    $password=$_POST['pass'];
-   
-   $_SESSION['emailid']=$emailid;
+    $_SESSION['emailid']=$emailid;
     
-    $answer=$db->check($emailid,$password);
+    $db->forget_pass($emailid);
 }
 ?>

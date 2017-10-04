@@ -20,6 +20,60 @@ session_start();
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
 </head>
 <body>
+<style>
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h4,h1 {
+  color: black;
+}
+
+
+.container {
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 0em auto;
+  background-color: white;
+  border-radius: 4.2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+.row {
+  zoom: 1;
+}
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.col-half {
+  padding-right: 10px;
+  float: left;
+  width: 50%;
+}
+.col-half:last-of-type {
+  padding-right: 0;
+}
+.col-third {
+  padding-right: 10px;
+  float: left;
+  width: 33.33333333%;
+}
+.col-third:last-of-type {
+  padding-right: 0;
+}
+@media only screen and (max-width: 540px) {
+  .col-half {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+</style>
 
 <!--navigation menu start here-->
 <div id="templatemo_mobile_menu">
@@ -45,51 +99,25 @@ session_start();
 </div>
 <!--navigation menu end here-->
 <style>
-#set{
-padding-top : 150px; 
-padding-left: 150px;
-}
-
-.container{
- background-image: url("../images/image2.jpg");
-}
-</style>
-
-<!--navigation menu end here-->
-<style>
-#set{
-padding-top : 150px; 
-padding-left: 150px;
-}
-
-.container{
- background-image: url("../images/img12.jpg");
-}
+#set{padding-top: 100px;}
 </style>
 <div id="set">
-  <div class="container">
-    <h2 align="center" style="color:aqua">Login Page</h2><br><br><br>
-    <form class="form-horizontal" method="POST" action="copassenger_login.php">
-      <div class="form-group">
-        <label class="col-sm-2 control-label" for="src" style="color:aqua">Email:</label>
-        <div class="col-sm-6">
-          <input type="gmail" class="form-control" id="src" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Valid Email">
-        </div>
+<div class="container">
+  <form class="form-horizontal" method="POST" action="copassenger_login.php">
+    <div class="row">
+      <center><h1>Login Form</h1></center><br>
+      	<h4>User Email</h4><input type="gmail" class="form-control" id="src" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Valid Email"></br>
+         <h4>Password</h4><input type="password" class="form-control" id="pass" name="pass" required placeholder="Enter Password [Minimum 6 Characters]" pattern="^.{6,35}$"></br>
+        <div class="text-center">
+			<button class="btn btn-danger " name="submit" value="submit" type="submit" >Login</button>
+			<h4><span class="glyphicon glyphicon-hand-right"></span><a href="forget_password.php">&nbsp;Forget Password</a></h4>
+	</div>
       </div>
-
-      <div class="form-group">
-        <label class="col-sm-2 control-label" for="carno" style="color:aqua">Password:</label>
-        <div class="col-sm-6">
-          <input type="password" class="form-control" id="pass" style="width:10" name="pass" required placeholder="Enter Password">
-        </div>
-      </div>
-      <div class="form-group"> 
-        <div class="text-center"><button class="btn btn-default " name="submit" value="submit" type="submit" >submit</button></div>
-      </div>
-      <!--a href="copassenger_signup.php">signup</a-->
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
+</div>
+</body>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
@@ -102,7 +130,6 @@ padding-left: 150px;
 <script src="../js/unslider.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="../js/templatemo_script.js"></script>
-</body>
 </html>
 
 <?php
@@ -111,16 +138,12 @@ $db=new db();
 
 if(isset($_POST['submit']))
 {
-    
+    $a1=$_SESSION['email']=$_POST['email'];
     $emailid=$_POST['email'];
     $password=$_POST['pass'];
    
    $_SESSION['emailid']=$emailid;
     
     $answer=$db->check($emailid,$password);
-    
-   
-
-
 }
 ?>

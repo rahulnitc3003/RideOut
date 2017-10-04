@@ -42,6 +42,15 @@ if(!$_SESSION['emailid'])
     <li><a rel="nofollow" href="../logout.php" class="external-link">
         <i class="glyphicon glyphicon-user"></i>Logout</a>
     </li>
+    <li><a rel="nofollow" href="change_password.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
+        <i class="glyphicon glyphicon-user"></i>Change Password</a>
+    </li>
+    <li><a rel="nofollow" href="copassenger_profile.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
+        <i class="glyphicon glyphicon-user"></i>Profile</a>
+    </li>
+    <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
+        <i class="glyphicon glyphicon-forward"></i>Slide Right</a>
+    </li>
   </ul>
 </div>
 
@@ -53,6 +62,12 @@ if(!$_SESSION['emailid'])
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
+          <li><a rel="nofollow" href="copassenger_profile.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
+              <i class="glyphicon glyphicon-user"></i>Profile</a>
+          </li>
+          <li><a rel="nofollow" href="change_password.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
+              <i class="glyphicon glyphicon-user"></i>Change Password</a>
+          </li>
           <li><a rel="nofollow" href="../logout.php" class="external-link">
               <i class="glyphicon glyphicon-user"></i>Logout</a>
           </li>
@@ -72,7 +87,7 @@ if(!$_SESSION['emailid'])
             <div class="event_box_wap event_animate_left">
               <div class="event_box_img"><img src="../images/search.jpg" class="img-responsive" alt="traffic" /></div>
               <div class="event_box_caption">
-                <a href="search_panal.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Search Ride</h1></a>
+                <a href="search_panal.php?email=<?php echo @$_GET['email']; ?>"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Search Ride</h1></a>
                 <p>Copassenger can search the ride available here..</p>
                 <p>Copassenger can search all the ride and their details after login..Copassenger can enter his ride preferences and can see the
 				ride which are available..</p>
@@ -84,7 +99,7 @@ if(!$_SESSION['emailid'])
             <div class="event_box_wap event_animate_right">
               <div class="event_box_img"><img src="../images/book.jpg" class="img-responsive" alt="save_money" /></div>
               <div class="event_box_caption">
-                <a href="ride_booking.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Book Ride</h1></a>
+                <a href="ride_booking.php?email=<?php echo @$_GET['email']; ?>"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Book Ride</h1></a>
                 <p>After searching ride ,copassenger can book the desired ride here.. </p>
                 <p>When copassenger find the matched ride then he can book the ride to the car owner..</p>
               </div>
@@ -95,7 +110,7 @@ if(!$_SESSION['emailid'])
             <div class="event_box_wap event_animate_left">
               <div class="event_box_img"><img src="../images/status.jpg" class="img-responsive" alt="fual" /></div>
               <div class="event_box_caption">
-                <a href="booking_status.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Check Booking Confirmation</h1></a>
+                <a href="booking_status.php?email=<?php echo @$_GET['email']; ?>"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Check Booking Confirmation</h1></a>
                 <p>Copassenger can check his/her booking status here..</p>
                 <p>When copassenger will book the ride ,after that car owner confirms the ride then he can check his booking status whether the ride has been booked or not..</p>
               </div>
@@ -106,7 +121,7 @@ if(!$_SESSION['emailid'])
             <div class="event_box_wap event_animate_left">
               <div class="event_box_img"><img src="../images/feedback.jpg" class="img-responsive" alt="fual" /></div>
               <div class="event_box_caption">
-                <a href="feedback.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;FeedBack</h1></a>
+                <a href="feedback.php?email=<?php echo @$_GET['email']; ?>"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;FeedBack</h1></a>
                 <p>The sharing of car journeys so that more than one person travels in a car.</p>
                 <p>Carpooling reduces each person's travel costs such as fuel costs, tolls, and the stress of driving. Carpooling is also a more environmentally friendly and sustainable way to travel as sharing journeys reduces carbon emissions, traffic congestion on the roads, and the need for parking spaces.</p>
               </div>
@@ -116,9 +131,7 @@ if(!$_SESSION['emailid'])
   </div>
 </div>
 
-<div id="templatemo_footer" style="background-color:#f15556">
-  <div><p id="footer">Copyright &copy; 2017 RideOut System</p></div>
-</div>
+<div id="templatemo_footer" style="background-color:#f15556"><p id="footer">Copyright &copy; 2017 RideOut System</p></div>
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>

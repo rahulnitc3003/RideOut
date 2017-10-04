@@ -1,3 +1,12 @@
+<?php
+session_start();
+$ver=$_SESSION['emailid'];
+if(!$_SESSION['emailid'])
+{
+	header('location:copassenger_login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,17 +39,15 @@
 <!--navigation menu start here-->
 <div id="templatemo_mobile_menu">
   <ul class="nav nav-pills nav-stacked">
-    <!--li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
-            Home Page</a>
-    </li-->
-
-    <li><a rel="nofollow" href="user_profile.php" class="external-link">
+    <li><a rel="nofollow" href="../logout.php" class="external-link">
+        <i class="glyphicon glyphicon-user"></i>Logout</a>
+    </li>
+    <li><a rel="nofollow" href="change_password.php" class="external-link">
+        <i class="glyphicon glyphicon-user"></i>Change Password</a>
+    </li>
+    <li><a rel="nofollow" href="#" class="external-link">
         <i class="glyphicon glyphicon-user"></i>Profile</a>
     </li>
-    <li><a rel="nofollow" href="../logout.php" class="external-link">
-        <i class="glyphicon glyphicon-lock"></i>Logout</a>
-    </li>
-<li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
   </ul>
 </div>
 
@@ -52,15 +59,14 @@
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
-          <!--li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
-            Home Page</a>
-          </li-->
-
-          <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-phone-alt"></i>
-            Profile</a>
+          <li><a rel="nofollow" href="#" class="external-link">
+              <i class="glyphicon glyphicon-user"></i>Profile</a>
           </li>
-          <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-lock"></i>
-              Logout</a>
+          <li><a rel="nofollow" href="change_password.php" class="external-link">
+              <i class="glyphicon glyphicon-user"></i>Change Password</a>
+          </li>
+          <li><a rel="nofollow" href="../logout.php" class="external-link">
+              <i class="glyphicon glyphicon-user"></i>Logout</a>
           </li>
         </ul>
       </div>
@@ -73,49 +79,48 @@
 <div id="set">
   <div id="templatemo_events" class="container_wapper" style="background-color:#f15556">
       <div class="container-fluid">
-          <h1 style="font-size:40px">Login Panel</h1>
+          <h1 style="font-size:40px">Passanger Panel</h1>
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
             <div class="event_box_wap event_animate_left">
-              <div class="event_box_img"><img src="../images/book_jur.jpg" class="img-responsive" alt="traffic" /></div>
+              <div class="event_box_img"><img src="../images/search.jpg" class="img-responsive" alt="traffic" /></div>
               <div class="event_box_caption">
-                <a href="add_journey.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Add Journey</h1></a>
-                <p>Car owner can add the journey details here..</p>
-                <p>In add journey the car owner can add his journey details like source,destination,car number,
-				number of seats available,date of journey,mobile number..</p>
+                <a href="search_panal.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Search Ride</h1></a>
+                <p>Copassenger can search the ride available here..</p>
+                <p>Copassenger can search all the ride and their details after login..Copassenger can enter his ride preferences and can see the
+				ride which are available..</p>
               </div>
             </div>
           </div>
         
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
             <div class="event_box_wap event_animate_right">
-              <div class="event_box_img"><img src="../images/save_money.jpg" class="img-responsive" alt="save_money" /></div>
+              <div class="event_box_img"><img src="../images/book.jpg" class="img-responsive" alt="save_money" /></div>
               <div class="event_box_caption">
-                <a href="update_journey.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Update Journey</h1></a>
-                <p>Car owner can update the journey here..</p>
-                <p>In update journey the car owner can update journey like source,destination,car number,
-				number of seats available,date of journey,mobile number..</p>
+                <a href="ride_booking.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Book Ride</h1></a>
+                <p>After searching ride ,copassenger can book the desired ride here.. </p>
+                <p>When copassenger find the matched ride then he can book the ride to the car owner..</p>
               </div>
             </div>
           </div>
           
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
             <div class="event_box_wap event_animate_left">
-              <div class="event_box_img"><img src="../images/save_fuel.jpg" class="img-responsive" alt="fual" /></div>
+              <div class="event_box_img"><img src="../images/status.jpg" class="img-responsive" alt="fual" /></div>
               <div class="event_box_caption">
-                <a href="booking_panal.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Check Booking List</h1></a>
-                <p>Car owner can check the booking status here..</p>
-                <p>In booking status the car owner can check the booking status of those passengers who have requested for his ride but has not been booked</p>
+                <a href="booking_status.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Check Booking Confirmation</h1></a>
+                <p>Copassenger can check his/her booking status here..</p>
+                <p>When copassenger will book the ride ,after that car owner confirms the ride then he can check his booking status whether the ride has been booked or not..</p>
               </div>
             </div>
           </div>
 
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
             <div class="event_box_wap event_animate_left">
-              <div class="event_box_img"><img src="../images/conf.jpg" class="img-responsive" alt="fual" /></div>
+              <div class="event_box_img"><img src="../images/feedback.jpg" class="img-responsive" alt="fual" /></div>
               <div class="event_box_caption">
-                <a href="confirm_booking_panal.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;Confirm Booking</h1></a>
-                <p>Car owner can confirm his booking of copassengers here..</p>
-                <p>After selecting his journey_id, the carowner will confirm the rides requested by co-passengers..</p>
+                <a href="feedback.php"><h1><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;FeedBack</h1></a>
+                <p>The sharing of car journeys so that more than one person travels in a car.</p>
+                <p>Carpooling reduces each person's travel costs such as fuel costs, tolls, and the stress of driving. Carpooling is also a more environmentally friendly and sustainable way to travel as sharing journeys reduces carbon emissions, traffic congestion on the roads, and the need for parking spaces.</p>
               </div>
             </div>
           </div>

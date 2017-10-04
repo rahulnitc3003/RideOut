@@ -1,0 +1,2 @@
+database name: id1068737_rideout
+password: rideout

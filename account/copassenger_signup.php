@@ -80,6 +80,7 @@ h4,h1 {
             <ul class="nav nav-pills nav-stacked">
                  <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
                  <li><a rel="nofollow" href="copassenger_login.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Login</a></li>
+<li><a rel="nofollow" href="copassenger_signup.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
             </ul>
 </div>
 <div class="container_wapper">
@@ -106,13 +107,13 @@ h4,h1 {
   <form class="form-horizontal" method="POST" action="copassenger_signup.php">
     <div class="row">
       <center><h1>Sign Up Form</h1></center><br>
-      	<h4>First Name</h4><input type="text" class="form-control" id="src" name="fname" required placeholder="Enter First Name"></br>
-        <h4>Second Name</h4><input type="text" class="form-control" id="src" name="lname" required placeholder="Enter Second Name"></br>
-        <h4>Email</h4><input type="email" class="form-control" id="src" name="emailid" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Valid Email"></br>
-        <h4>Password</h4><input type="password" class="form-control" id="pass" style="width:10" name="pass" required placeholder="Enter Password [Minimum 6 Characters]" pattern="^.{6,35}$"></br>
-        <h4>Address</h4><textarea class="form-control" rows="2" id="add" name="add" required placeholder="Enter Your Address"></textarea></br>
-        <h4>Addhar Number</h4><input type="text" class="form-control" id="uid" name="uid" required placeholder="Enter Valid Addhar Number" pattern="[0-9]{12}" /></br> 
-        <h4>Mobile Number</h4><input type="text" class="form-control" id="pass" style="width:10" name="cno" required placeholder="Enter Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" /></br></br>
+      	<h4>First Name*</h4><input type="text" class="form-control" id="src" name="fname" required placeholder="First Name"></br>
+        <h4>Second Name*</h4><input type="text" class="form-control" id="src" name="lname" required placeholder="Second Name"></br>
+        <h4>Email*</h4><input type="email" class="form-control" id="src" name="emailid" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Valid Email"></br>
+        <h4>Password*</h4><input type="password" class="form-control" id="pass" style="width:10" name="pass" required placeholder="[Minimum 6 Characters]" pattern="^.{6,35}$"></br>
+        <h4>Address*</h4><textarea class="form-control" rows="2" id="add" name="add" required placeholder="Your Address"></textarea></br>
+        <h4>Addhar Number*</h4><input type="text" class="form-control" id="uid" name="uid" required placeholder="Valid Addhar Number" pattern="[0-9]{12}" /></br> 
+        <h4>Contact Number*</h4><input type="text" class="form-control" id="pass" style="width:10" name="cno" required placeholder="Contact Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" /></br></br>
 	  <div class="form-group"> 
         <div class="text-center"><button class="btn btn-danger " name="submit" value="submit" type="submit" >Sign Up</button></div>
       </div>

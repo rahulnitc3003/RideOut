@@ -39,7 +39,7 @@ if ($gClient->getAccessToken()) {
     $_SESSION['userData'] = $userData;
     //Render facebook profile data
     if(!empty($userData)){
-		$var=$userData['email'];
+    $var=$userData['email'];
     }else{
         $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
     }
@@ -75,6 +75,7 @@ if ($gClient->getAccessToken()) {
                  <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
                  <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
                  <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+                 <li><a rel="nofollow" href="add_journey.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
             </ul>
 </div>
 <div class="container_wapper">
@@ -105,6 +106,71 @@ padding-top : 150px;
 }
 </style>
 
+<!--google map script api start here-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOs735Nv4ymhLSmNDvkpK3NRCEOOvKlyg&libraries=places&callback=initMap" async defer>
+</script>
+<script>
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      mapTypeControl: false,
+      center: {
+        lat: -33.8688,
+        lng: 151.2195
+      },
+      zoom: 13
+    });
+
+    new AutocompleteDirectionsHandler(map);
+  }
+
+function AutocompleteDirectionsHandler(map) {
+  this.map = map;
+  this.originPlaceId = null;
+  this.destinationPlaceId = null;
+  this.travelMode = 'WALKING';
+  var originInput = document.getElementById('origin-input');
+  var destinationInput = document.getElementById('destination-input');
+  var modeSelector = document.getElementById('mode-selector');
+  this.directionsService = new google.maps.DirectionsService;
+  this.directionsDisplay = new google.maps.DirectionsRenderer;
+  this.directionsDisplay.setMap(map);
+
+  var originAutocomplete = new google.maps.places.Autocomplete(
+    originInput, {
+      placeIdOnly: true
+    });
+  var destinationAutocomplete = new google.maps.places.Autocomplete(
+    destinationInput, {
+      placeIdOnly: true
+    });
+
+  this.setupClickListener('changemode-walking', 'WALKING');
+  this.setupClickListener('changemode-transit', 'TRANSIT');
+  this.setupClickListener('changemode-driving', 'DRIVING');
+
+  this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+  this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+}
+
+// Sets a listener on a radio button to change the filter type on Places
+// Autocomplete.
+AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+  var radioButton = document.getElementById(id);
+  var me = this;
+  radioButton.addEventListener('click', function() {
+    me.travelMode = mode;
+    me.route();
+  });
+};
+</script>
+
+<!--google map script api start here-->
+
+
 <!--navigation menu end here-->
 <div id="set">
   <div class="container">
@@ -121,36 +187,41 @@ padding-top : 150px;
         
         <tr>
           <td>Car Number</td>   
-          <td><input type="text" class="form-control" id="carno" style="width:10" name="carno" required pattern="^[A-Za-z]{2}([ \-])[0-9]{2}[A-ZAa-z0-9]{1,2}[A-Za-z]\1[0-9]{4}$" placeholder="Enter Car Number [ Format {XX-00XX-0000} ]">
+          <td><input type="text" class="form-control" id="carno" style="width:10" name="carno" required pattern="^[A-Za-z]{2}([ \-])[0-9]{2}[A-ZAa-z0-9]{1,2}[A-Za-z]\1[0-9]{4}$" placeholder="Format {XX-00XX-0000}">
           </td>
         </tr>
         <tr>
           <td>Source</td>   
-          <td><input type="text" class="form-control" id="src" name="src" required placeholder="Enter Source Location">
+          <td>
+              <input id="origin-input" type="text" class="form-control" id="src" name="src" required placeholder="Source Location">
+              </input>
           </td>
         </tr>
         <tr>
-          <td>Destination</td>   
-          <td><input type="text" class="form-control" id="dest" name="dest" required placeholder="Enter Destination Location">
+          <td>Destination</td>
+          <td>
+            <input id="destination-input" type="text" class="form-control" id="dest" name="dest" required placeholder="Destination Location">
+            </input>
+            <div id="map"></div>
           </td>
         </tr>
         <tr>
            <td>Date Of Journey</td>
-	   <td>
-	    <div class='input-group date' id='datetimepicker1'>
-	     <input type='text' class="form-control" name="doj" />
-	     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-	    </div>
-	   </td>
+           <td>
+            <div class='input-group date' id='datetimepicker1'>
+             <input type='text' class="form-control" name="doj" placeholder=year/mm/dd />
+             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+            </div>
+           </td>
         </tr>
         <tr>
           <td>Available Seats</td>   
-          <td><input type='text' class="form-control" name="seat" required placeholder="Enter Seats Number ( upto 5 seats )" pattern="[1-5]{1}" />
+          <td><input type='text' class="form-control" name="seat" required placeholder="Upto 5 seats" pattern="[1-5]{1}" />
           </td>
         </tr>
         <tr>
           <td>Mobile Number</td>   
-          <td><input type='text' class="form-control" name="mobno" required placeholder="Enter Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" />
+          <td><input type='text' class="form-control" name="mobno" required placeholder="Valid Mobile Number" pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" />
           </td>
         </tr>
         <tr>
@@ -181,52 +252,52 @@ padding-top : 150px;
 
 <?php
 
-include 'database.php';
-$db=new db();
-//echo $var;
-$date1 = date("Y-m-d");
-if(isset($_POST['submit']))
-{
-    
-	$carnum=$_POST['carno'];
-	$source=$_POST['src'];
-	$desti=$_POST['dest'];
-	$dateofjour=$_POST['doj'];
-	$seats=$_POST['seat'];
-        $mobno=$_POST['mobno'];
-      if($source == $desti)
-      {
-        echo "<script>alert('Source And Destination Can Not Be Equal')</script>";
-        exit(0);
-      }
-      if($dateofjour <= $date1)
-      {
-        echo "<script>alert('Current Or Previous Date Can not Be Entered')</script>";
-        exit(0);
-      }
-      if($seats == 0)
-      {
-        echo "<script>alert('Seat Number Can Not Be Zero')</script>";
-        exit(0);
-      }
-      if($mobno == "")
-      {
-        echo "<script>alert('Enter Mobile Number')</script>";
-        exit(0);
-      }
-//bug corrected code
-$ans=$db->validate($carnum,$dateofjour);
-	if($ans==1)
-	{
-		echo "<script>alert('Entered Car Is Already Booked ! Please Choose A Different Car ! ')</script>";
-                exit(0);
+  include 'database.php';
+  $db=new db();
+  //echo $var;
+  $date1 = date("Y-m-d");
+  if(isset($_POST['submit']))
+  {
+      
+    $carnum=$_POST['carno'];
+    $source=$_POST['src'];
+    $desti=$_POST['dest'];
+    $dateofjour=$_POST['doj'];
+    $seats=$_POST['seat'];
+    $mobno=$_POST['mobno'];
+        if($source == $desti)
+        {
+          echo "<script>alert('Source And Destination Can Not Be Equal')</script>";
+          exit(0);
+        }
+        if($dateofjour <= $date1)
+        {
+          echo "<script>alert('Current Or Previous Date Can not Be Entered')</script>";
+          exit(0);
+        }
+        if($seats == 0)
+        {
+          echo "<script>alert('Seat Number Can Not Be Zero')</script>";
+          exit(0);
+        }
+        if($mobno == "")
+        {
+          echo "<script>alert('Enter Mobile Number')</script>";
+          exit(0);
+        }
+        //bug corrected code
+        $ans=$db->validate($carnum,$dateofjour);
+        if($ans==1)
+        {
+            echo "<script>alert('Entered Car Is Already Booked ! Please Choose A Different Car ! ')</script>";
+                        exit(0);
 
-	}
-else
-{
-	$sql="insert into journey (email,car_no,source,destination,doj,seats_avail,mobno) values ('$var','$carnum','$source','$desti','$dateofjour','$seats','$mobno')";
-	$db->insert($sql);
-	
-}	
-}
+        }
+        else
+        {
+          $sql="insert into journey (email,car_no,source,destination,doj,seats_avail,mobno) values ('$var','$carnum','$source','$desti','$dateofjour','$seats','$mobno')";
+          $db->insert($sql);
+          
+        } 
+  }
 ?>

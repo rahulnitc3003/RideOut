@@ -20,9 +20,10 @@
     <!--navigation menu start here-->
 <div id="templatemo_mobile_menu">
     <ul class="nav nav-pills nav-stacked">
-        <li><a rel="nofollow" href="passenger_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
-        <li><a rel="nofollow" href="search_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-        <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>logout</a></li>
+        <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
+        <li><a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+        <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
+        <li><a rel="nofollow" href="carowner_profile.php?id=<?php echo @$_GET['id']; ?>&email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
     </ul>
 </div>
 <div class="container_wapper">
@@ -32,8 +33,8 @@
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="passenger_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
-          <li><a rel="nofollow" href="search_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
+          <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
+          <li><a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
           <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
         </ul>
       </div>
@@ -87,5 +88,17 @@
             </div>
         </div>
 </div>
-<body>
+</body>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
+<script src="../js/index.js"></script>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.singlePageNav.min.js"></script>
+<script src="../js/unslider.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="../js/templatemo_script.js"></script>
 </html>
