@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -18,8 +18,21 @@ session_start();
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
-<body>
+    <body class="w3-light-grey">
+
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Logo</a>
+          <a href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <a href="copassenger_profile.php?email=<?php echo @$_GET['email']; ?>" class="w3-bar-item w3-button w3-mobile">Profile</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
   <style>
     *,
     *:before,
@@ -58,36 +71,10 @@ session_start();
         padding-right: 0;
       }
     }
-    #set{padding-top: 100px;}
+    
   </style>
 
-  <!--navigation menu start here-->
-  <div id="templatemo_mobile_menu">
-    <ul class="nav nav-pills nav-stacked">
-      <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-      <li><a rel="nofollow" href="copassenger_profile.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-      <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-      <li><a rel="nofollow" href="change_password.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-    </ul>
-  </div>
-
-  <div class="container_wapper">
-    <div id="templatemo_banner_menu">
-      <div class="container-fluid">
-        <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="rideout system" title="Car Ride" /></a>
-        </div>
-        <div class="col-sm-8 hidden-xs">
-          <ul class="nav nav-justified">
-            <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-            <li><a rel="nofollow" href="copassenger_profile.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-            <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
-          </ul>
-        </div>
-        <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-      </div>
-    </div>
-  </div>
-  <!--navigation menu end here-->
+  
 
   <div id="set">
     <div class="container">

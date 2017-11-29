@@ -47,12 +47,17 @@ if ($gClient->getAccessToken()) {
 }
 ?>
 
+
+<?php
+$conn2=mysqli_connect("localhost","id1068737_rideout","rideout","id1068737_rideout") or die("Connection Failed");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -64,37 +69,22 @@ if ($gClient->getAccessToken()) {
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
-</head>
-<body>
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-  <ul class="nav nav-pills nav-stacked">
-    <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-    <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-    <li><a rel="nofollow" href="confirm_booking_panal.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-  </ul>
-</div>
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-          <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
-<!--navigation menu end here-->
-<style>
-  #set{
-  padding-top : 150px;
-}
-</style>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body class="w3-light-grey">
+
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="user_profile.php" class="w3-bar-item w3-button w3-mobile">Profile</a>
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+</head><!--navigation menu start here-->
+
 <div id="set">
   <div class="container">
   <div class="table-responsive">
@@ -168,8 +158,13 @@ if ($gClient->getAccessToken()) {
       foreach($postdata1 as $post1)
       {
         $i++;
-        ?>
-        <tr align="center">
+        $dummy=$post1["ride_id"];
+        $q1="select book_id from booking where ride_id=$dummy";
+        $q2=mysqli_query($conn2,$q1);
+        if(mysqli_num_rows($q2)>0)
+        {
+            ?>
+             <tr align="center">
           <!--td--><!--?php echo $post1["journey_id"]; ?></td-->
           <td><?php echo $post1["ride_id"]; ?></td>
           <td><?php echo $post1["email"]; ?></td>
@@ -179,8 +174,33 @@ if ($gClient->getAccessToken()) {
           <td><?php echo $post1["doj"]; ?></td>
           <td><?php echo $post1["mobno"]; ?></td>
           <td><a href='passenger_profile.php?id=<?php echo $post1["email"]; ?>'><input type="button" value="Check Profile" /></a></td>
-          <td><a href='confirm_booking.php?id=<?php echo $post1["ride_id"]; ?>'><input type="button" value="Confirm" /></a></td>
-        <tr>
+          <td><input type="text" style="color: green;" class="form-control" id="src" name="src" value="Confirmed" readonly></td>
+        <tr> 
+        <?php    
+        }
+        else
+        {
+            ?>
+            <tr align="center">
+          <!--td--><!--?php echo $post1["journey_id"]; ?></td-->
+          <td><?php echo $post1["ride_id"]; ?></td>
+          <td><?php echo $post1["email"]; ?></td>
+          <td><?php echo $post1["source"]; ?></td>
+          <td><?php echo $post1["destination"]; ?></td>
+          <td><?php echo $post1["seats_book"]; ?></td>
+          <td><?php echo $post1["doj"]; ?></td>
+          <td><?php echo $post1["mobno"]; ?></td>
+          <td><a href='passenger_profile.php?id=<?php echo $post1["email"]; ?>'><input type="button" value="Check Profile" /></a></td>
+          <td><a href='confirm_booking.php?id=<?php echo $post1["ride_id"]?>&mail_id=<?php echo $post1['email']; ?>'><input type="button" value="Confirm" /></a></td>
+        <tr> 
+        <?php
+        }
+        
+        
+        
+        
+        ?>
+       
       <?php
       }
       if($i==0)

@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -18,8 +18,20 @@ session_start();
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body class="w3-light-grey">
+
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="../index.php" class="w3-bar-item w3-button w3-mobile">Home</a>
+          <a href="copassenger_signup.php" class="w3-bar-item w3-button w3-mobile">New User</a>
+        </div>
 </head>
-<body>
   <style>
     *,
     *:before,
@@ -71,32 +83,9 @@ session_start();
         padding-right: 0;
       }
     }
-    #set{padding-top: 100px;}
+    #set{padding-top: 50px;}
   </style>
 
-  <!--navigation menu start here-->
-  <div id="templatemo_mobile_menu">
-              <ul class="nav nav-pills nav-stacked">
-                   <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
-                   <li><a rel="nofollow" href="copassenger_signup.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Sign Up</a></li>
-                   <li><a rel="nofollow" href="copassenger_login.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-              </ul>
-  </div>
-  <div class="container_wapper">
-    <div id="templatemo_banner_menu">
-      <div class="container-fluid">
-        <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="Rideout System" title="Car Ride" /></a>
-        </div>
-        <div class="col-sm-8 hidden-xs">
-          <ul class="nav nav-justified">
-            <li><a rel="nofollow" href="../index.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Home</a></li>
-            <li><a rel="nofollow" href="copassenger_signup.php" class="external-link"><i class="glyphicon glyphicon-export"></i>SignUp</li>
-          </ul>
-        </div>
-        <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-      </div>
-    </div>
-  </div>
   <!--navigation menu end here-->
 
   <div id="set">
@@ -108,7 +97,7 @@ session_start();
           <h4>Password</h4><input type="password" class="form-control" id="pass" name="pass" required placeholder="[Minimum 6 Characters]" pattern="^.{6,35}$"></br>
           <div class="text-center">
             <button class="btn btn-danger " name="submit" value="submit" type="submit" >Login</button>
-    		    <h4><span class="glyphicon glyphicon-hand-right"></span><a href="forget_password.php">&nbsp;Forget Password</a></h4>
+    		    <h4><a href="forget_password.php">&nbsp;Forget Password</a></h4>
           </div>
         </div>
       </form>

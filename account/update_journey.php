@@ -2,6 +2,7 @@
 //Include GP config file && User class
 include_once '../gpConfig.php';
 include_once '../User.php';
+include 'database.php';
 
 if(isset($_GET['code'])){
     $gClient->authenticate($_GET['code']);
@@ -57,7 +58,7 @@ if ($gClient->getAccessToken()) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -69,46 +70,26 @@ if ($gClient->getAccessToken()) {
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
-</head>
-<body>
+    
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body class="w3-light-grey">
 
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-            <ul class="nav nav-pills nav-stacked">
-                 <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-                 <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-                 <li><a rel="nofollow" href="update_journey.php" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-            </ul>
-</div>
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-          <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-          <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="user_profile.php" class="w3-bar-item w3-button w3-mobile">Profile</a>
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <button class="btn btn-danger "id="mabt">Show Details</button>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+</head>
+    
 
 <!--navigation menu end here-->
-<style>
-  #set{
-  padding-top : 150px;
-}
 
-  .container{
-   background-image: url("../images/image2.jpg");
-  }
-
-</style>
 <div id="set">
   <div class="container">
     <form class="form-horizontal" method="POST" action="update_journey.php">
@@ -120,7 +101,7 @@ if ($gClient->getAccessToken()) {
           <td>Select Journey Id</td>
           <td><select class="form-control" id="journeyid" name="journeyid">
               <?php
-                include 'database.php';
+                
                 $db=new db();
 
 	        $postdata=$db->update('journey',$var);
@@ -146,9 +127,53 @@ if ($gClient->getAccessToken()) {
          </tr>
          <tr>
            <td colspan="2" align="center">
-              <button class="btn btn-danger " name="submit1" value="Update" type="submit" >submit</button>
+              <button class="btn btn-danger " name="submit1" value="Update" type="submit" >Submit</button>
+              
            </td>
          </tr>
+        </table>
+        <div id="tmp1">
+        <table class="table" border="5">
+            <?php
+                //include 'database.php';
+                $db=new db();
+                //echo $var;
+	            $postdata=$db->show_details($var);
+                $i=0;
+	            foreach($postdata as $post)
+	            {
+                  $i++;
+		    ?>
+                <tr>
+                    <td><center><b>Journey Id</b></center></td>
+                    <td><center><b>Source</b></center></td>
+                    <td><center><b>Destination</b></center></td>
+                    <td><center><b>Available Seats</b></center></td>
+                    <td><center><b>Date of Journey</b></center></td>
+                    <td><center><b>Car Number</b></center></td>
+                </tr>
+                <tr align="center">
+                    <td><?php echo $post["journey_id"];?></td>
+                    <td><?php echo $post["source"];?></td>
+                    <td><?php echo $post["destination"];?></td>
+                    <td><?php echo $post["seats_avail"];?></td>
+                    <td><?php echo $post["doj"];?></td>
+                    <td><?php echo $post["car_no"];?></td>
+                </tr>
+                
+                <?php
+	            }
+                if($i==0)
+                {
+                  echo "<script>alert('You have not added any Journey')</script>";
+                  echo "<script>window.open('login_panal.php','_self')</script>";
+                  exit(0);
+                }
+              ?>
+        </table>
+        </div>
+        
+        <table class="table" border="5">
          <?php
            $db=new db();
            if(isset($_POST['submit1']))
@@ -188,10 +213,8 @@ if ($gClient->getAccessToken()) {
                <tr>
                  <td>Date Of Journey</td>
 	         <td>
-	           <div class='input-group date' id='datetimepicker1'>
-	            <input type='text' class="form-control" name="doj" value="<?php echo $post1["doj"]?>" />
-	            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-	           </div>
+	           <input type="text" required id="datepicker" name="doj" value="<?php echo $post1["doj"]?>">
+	           
 	        </td>
                </tr>
                <tr>
@@ -232,6 +255,17 @@ if ($gClient->getAccessToken()) {
 <script src="../js/unslider.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="../js/templatemo_script.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>	
+$( function() {
+    $( "#datepicker" ).datepicker({ minDate: 0 });
+  } );   
+</script>
+
 </body>
 </html>
 
@@ -251,11 +285,11 @@ if(isset($_POST['submit2']))
         echo "<script>alert('Source And Destination Can Not Be Equal')</script>";
         exit(0);
       }
-      if($dateofjour <= $date1)
+      /*if($dateofjour <= $date1)
       {
         echo "<script>alert('Invalid Date Entered !')</script>";
         exit(0);
-      }
+      }*/
       if($seats == 0)
       {
         echo "<script>alert('Seat Number Can Not Be Zero')</script>";
@@ -278,3 +312,20 @@ if(isset($_POST['submit2']))
   $db->delete_booking($sql_del);
 }
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#tmp1").hide();
+    $("#mabt").click(function(){
+       var mav=$("#mabt").text().trim();
+       if(mav=="Show Details"){
+           $("#mabt").text("Skip Details");
+           $("#tmp1").show();
+       }
+       if(mav=="Skip Details"){
+           $("#mabt").text("Show Details");
+           $("#tmp1").hide();
+       }
+    });
+});
+</script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -15,118 +15,99 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
-</head>
-<body>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body class="w3-light-grey">
 
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-            <ul class="nav nav-pills nav-stacked">
-                 <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-                 <li><a rel="nofollow" href="confirm_booking.php?id=<?php echo @$_GET['id']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-            </ul>
-</div>
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="login_panal.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-          <li><a rel="nofollow" href="user_profile.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Profile</a></li>
-          <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
-<!--navigation menu end here-->
-<style>
-  #set{
-  padding-top : 150px; 
-  padding-left: 150px;
-  }
-  .container{
-   background-image: url("../images/image2.jpg");
-  }
-</style>
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="user_profile.php" class="w3-bar-item w3-button w3-mobile">Profile</a>
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+</head>
 
 <?php
 $ride_id = @$_GET['id'];
+$mail = @$_GET['mail_id'];
 //$var=$ride_id;
 //echo $ride_id;
 ?>
 <div id="set">
-  <div class="container">
-    <h2 align="center" style="color:aqua">Confirm Journey</h2><br><br><br>
-    <form class="form-horizontal" method="POST" action="confirm_booking.php">
-        <?php
-	        include 'database.php';
-          $db=new db();
-          //echo "<script>alert('$var')</script>";
-          $postdata=$db->show_request($ride_id);
-          foreach($postdata as $post)
-          {
-	          ?>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="ride_id" style="color:aqua">Ride Id:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="ride_id" value="<?php echo $post["ride_id"]; ?>" readonly />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="j_id" style="color:aqua">Journey Id</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="j_id" value="<?php echo $post["journey_id"]; ?>" readonly />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="email" style="color:aqua">Email</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="email" value="<?php echo $post["email"]; ?>" readonly/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="src" style="color:aqua">Source:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="src" value="<?php echo $post["source"]; ?>" readonly>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="dest" style="color:aqua">Destination:</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="destination" value="<?php echo $post["destination"]; ?>" readonly>
-              </div>
-            </div>
-            <div class="form-group">
-              <label  class="col-sm-2 control-label" for="seat" style="color:aqua">Available Seats:</label>
-              <div class="col-sm-6"> 
-                <input type="text" class="form-control" name="seats_book" value="<?php echo $post["seats_book"]; ?>" readonly>
-              </div>
-            </div>
-            <div class="form-group">
-              <label  class="col-sm-2 control-label" for="seat" style="color:aqua">Journey Date:</label>
-              <div class="col-sm-6"> 
-                <input type="text" class="form-control" name="doj" value="<?php echo $post["doj"]; ?>" readonly>
-              </div>
-            </div>  
-            <div class="form-group">
-              <label  class="col-sm-2 control-label" for="mobno" style="color:aqua">Mobile Number:</label>
-              <div class="col-sm-6"> 
-                <input type="text" class="form-control" name="mobno" value="<?php echo $post["mobno"]; ?>" readonly >
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="text-center"><button class="btn btn-default " name="book"  type="submit" >Confirm Book</button></div>
-            </div>
-            
-	        <?php
-			     }
-          ?>
+    <div class="container">
+        <form class="form-horizontal" method="POST" action="confirm_booking.php">
+            <table class="table" border="5">
+                <?php
+        	        include 'database.php';
+                    $db=new db();
+                    //echo "<script>alert('$var')</script>";
+                    $postdata=$db->show_request($ride_id);
+                    foreach($postdata as $post)
+                    {
+                        $email_id = $post["email"];
+        	        ?>
+        	            <tr>
+                          <td colspan="2" align="center"><h3>Confirm Journey</h3></td>
+                        </tr>
+                        <tr>
+                          <td>Ride Id</td>   
+                          <td><input type="text" class="form-control" name="ride_id" value="<?php echo $post["ride_id"]; ?>" readonly />
+                          </td>
+                        </tr> 
+                        
+                        <tr>
+                          <td>Journey Id</td>   
+                          <td><input type="text" class="form-control" name="j_id" value="<?php echo $post["journey_id"]; ?>" readonly /></td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>   
+                          <td>
+                              <input type="text" class="form-control" name="email" value="<?php echo $post["email"]; ?>" readonly/>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <input type="text" class="form-control" name="src" value="<?php echo $post["source"]; ?>" readonly>
+                          </td>
+                        </tr>
+                        <tr>
+                           <td>Destination</td>
+                           <td>
+                            <input type="text" class="form-control" name="destination" value="<?php echo $post["destination"]; ?>" readonly>
+                           </td>
+                        </tr>
+                        <tr>
+                          <td>Available Seats</td>
+                          <td><input type="text" class="form-control" name="seats_book" value="<?php echo $post["seats_book"]; ?>" readonly>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Date of Journey</td>   
+                          <td><input type="text" class="form-control" name="doj" value="<?php echo $post["doj"]; ?>" readonly>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Mobile Number</td>   
+                          <td><input type="text" class="form-control" name="mobno" value="<?php echo $post["mobno"]; ?>" readonly >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">
+                            <div class="text-center"><button class="btn btn-default " name="book"  type="submit" >Confirm Book</button></div>
+                            </div>
+                          </td>
+                        </tr>
+                	   <?php
+			        }
+                ?>
+            </table>
+        </form>
       </div>
-    </form>
   </div>
 </div>
 <script src="../js/jquery.min.js"></script>
@@ -156,12 +137,18 @@ if(isset($_POST['book']))
 	{
     echo "<script>alert('You have already confirmed your journey !!')</script>";
     echo "<script>window.open('confirm_booking_panal.php','_self')</script>";
+   
 	exit;
 	}
 	else
 	{
 		$sql="insert into booking (ride_id) values ('$r')";
-	$db->final_book($sql,$j);	
+		
+	    $db->final_book($sql,$j,$r,$mail);	
+	
 	}
+	
+
+	
 }
 ?>

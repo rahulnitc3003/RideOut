@@ -4,6 +4,8 @@ if(!$_SESSION['email'])
 {
    header('location:copassenger_login.php');
 }
+
+include 'database.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ if(!$_SESSION['email'])
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -23,33 +25,23 @@ if(!$_SESSION['email'])
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
-</head>
-<body>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body class="w3-light-grey">
 
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-            <ul class="nav nav-pills nav-stacked">
-                 <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-                 <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-                 <li><a rel="nofollow" href="booking_status.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-            </ul>
-</div>
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="RideOut System" title="Car Ride" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-          <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</li>
-        
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="copassenger_profile.php?email=<?php echo @$_GET['email']; ?>" class="w3-bar-item w3-button w3-mobile">Profile</a>
+          <a href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <button class="btn btn-danger "id="mabt">Show Bookings</button>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+</head>
+
 
 <!--navigation menu end here-->
 <style>
@@ -76,7 +68,7 @@ if(!$_SESSION['email'])
         <td>
           <select class="form-control" id="rideid" name="rideid">
            <?php
-             include 'database.php';
+             //include 'database.php';
              $db=new db();
              $postdata=$db->book_status1($_SESSION['emailid']);
              $i=0;
@@ -89,18 +81,64 @@ if(!$_SESSION['email'])
 	     }
              if($i==0)
              {
-              echo "<script>alert('You Have Not Added Any Journey')</script>";
+              echo "<script>alert('No booked History')</script>";
               echo "<script>window.open('passenger_panal.php?email=$_GET[email]','_self')</script>";
               exit(0);
              }
-           ?>	
+            ?>
           </select>
         </td>
       </tr>
      <tr>
       <td colspan="2" align="center"><button class="btn btn-danger" name="submit1" value="Update" type="submit" >Check Status</button></td>
      </tr>
+    
     </table>
+    <div id="tmp1">
+        
+        <table class="table" border="5">
+                <?php
+                        //include 'database.php';
+                        $db=new db();
+                        //echo $var;
+                        $var = @$_GET['email'];
+        	            $postdata=$db->show_ride_details($var);
+                        $i=0;
+        	            ?>
+        	            <tr align="center">
+                    <td><b>Ride Id</b></td>
+                    <td><b>Source</b></td>
+                    <td><b>Destination</b></td>
+                    <td><b>Date Of Journey</b></td>
+                    <td><b>Seats Booked</b></td>
+                </tr>
+                <?php
+        	            foreach($postdata as $post)
+        	            {
+                          $i++;
+        		?>
+                
+                <tr align="center">
+                    <td><?php echo $post["ride_id"];?></td>
+                            <td><?php echo $post["source"];?></td>
+                            <td><?php echo $post["destination"];?></td>
+                            <td><?php echo $post["seats_book"];?></td>
+                            <td><?php echo $post["doj"];?></td>
+                </tr>
+                <?php
+        	            }
+                        /*if($i==0)
+                        {
+                          echo "<script>alert('No booked history')</script>";
+                          echo "<script>window.open('passenger_panal.php','_self')</script>";
+                          exit(0);
+                        }*/
+                ?>
+                
+                
+            </table>
+        
+    </div>
    </form>
   </div>
   </div>
@@ -129,5 +167,23 @@ if(isset($_POST['submit1']))
 <script src="../js/unslider.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="../js/templatemo_script.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#tmp1").hide();
+    $("#mabt").click(function(){
+       var mav=$("#mabt").text().trim();
+       if(mav=="Show Bookings"){
+           $("#mabt").text("Skip Details");
+           $("#tmp1").show();
+       }
+       if(mav=="Skip Details"){
+           $("#mabt").text("Show Bookings");
+           $("#tmp1").hide();
+       }
+    });
+});
+</script>
 </body>
 </html>

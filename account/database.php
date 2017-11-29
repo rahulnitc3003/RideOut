@@ -275,7 +275,7 @@ class db
             $result1 = $this->conn->query($sql1);
             if($result1->num_rows > 0)
 		    {
-            	echo "<script>alert('Welcome')</script>"; 
+            	//echo "<script>alert('Welcome')</script>"; 
                 echo "<script>window.open('passenger_panal.php?email=$email','_self')</script>";
         	}
             else
@@ -365,10 +365,11 @@ class db
 		return $array; 
 	}
 	
-	public function final_book($sql,$var)
+	public function final_book($sql,$var,$r,$mail)
 	{
 		
 		$result=$this->conn->query($sql);
+		
 		
 		if($result)
 		{
@@ -422,6 +423,34 @@ class db
 		  return 1;
 		else
 		  return 0;
+	}
+	
+	
+	/*my extra code */
+	public function show_details($email)
+	{
+    	$array= array();
+		$sql="select *from journey where email = '$email'";
+		$result = mysqli_query($this->conn,$sql);
+		
+		while($row = $result->fetch_assoc())
+		{
+			$array[]=$row;
+		}
+		return $array;	
+	}
+	
+	public function show_ride_details($email)
+	{
+    	$array= array();
+		$sql="select *from ride where email = '$email'";
+		$result = mysqli_query($this->conn,$sql);
+		
+		while($row = $result->fetch_assoc())
+		{
+			$array[]=$row;
+		}
+		return $array;	
 	}
 }
 ?>

@@ -10,7 +10,7 @@ if(!$_SESSION['email'])
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Ride System</title>
+    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
@@ -22,45 +22,23 @@ if(!$_SESSION['email'])
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
-<body>
+    <body class="w3-light-grey">
 
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-  <ul class="nav nav-pills nav-stacked">
-    <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-export"></i>Back</a></li>
-    <li><a rel="nofollow" href="../logout.php" class="external-link"><i class="glyphicon glyphicon-export"></i>Logout</a></li>
-    <li><a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-  </ul>
-</div>
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="Rideout System" title="Car Ride System" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li>
-            <a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
-            <i class="glyphicon glyphicon-export"></i>Back</a>
-          </li>
-          <li>
-            <a rel="nofollow" href="../logout.php" class="external-link">
-            <i class="glyphicon glyphicon-export"></i>Logout</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+    
 
-<!--navigation menu end here-->
 <style>
-#set{
-padding-top : 150px;
-}
-
 .container{
  background-image: url("../images/image2.jpg");
 }
@@ -70,6 +48,8 @@ padding-top : 150px;
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOs735Nv4ymhLSmNDvkpK3NRCEOOvKlyg&libraries=places&callback=initMap" async defer>
 </script>
 <script>
+ 
+  
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       mapTypeControl: false,
@@ -157,10 +137,9 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) 
 			<tr>
 				<td>Date Of Journey</td>
 				<td>
-					<div class='input-group date' id='datetimepicker1'>
-						<input type='text' class="form-control" name="doj" />
-						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-					</div>
+				    
+						<input type="text" name="doj" required id="datepicker">
+						
 				</td>
 			</tr>
 			<tr>
@@ -189,4 +168,13 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="../js/templatemo_script.js"></script>
 </body>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>	
+$( function() {
+    $( "#datepicker" ).datepicker({ minDate: 0 });
+  } );   
+</script>
 </html>

@@ -1,0 +1,2 @@
+<center><h1 style="color:red">!!! This Page is going on maintenence !!!</h1></center>
+<center><a href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>"><h2 style="color:green">Back</h2></a></center>

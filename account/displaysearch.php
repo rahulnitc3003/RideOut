@@ -22,57 +22,26 @@ if(!$_SESSION['email'])
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
-<body>
+    <body class="w3-light-grey">
+
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
+          <a href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+        
 <style>
 #set{
 padding-top : 120px; 
 
 }
 </style>
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-  <ul class="nav nav-pills nav-stacked">
-    <li>
-      <a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
-      <i class="glyphicon glyphicon-export"></i>Modify Search</a>
-    </li>
-    <li>
-      <a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
-      <i class="glyphicon glyphicon-export"></i>Back</a>
-    </li>
-    <li>
-      <a rel="nofollow" href="../logout.php" class="external-link">
-      <i class="glyphicon glyphicon-export"></i>Logout</a>
-    </li>
-    <li><a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-  </ul>
-</div>
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li>
-            <a rel="nofollow" href="search_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
-            <i class="glyphicon glyphicon-export"></i>Modify Search</a>
-          </li>
-          <li>
-            <a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email']; ?>" class="external-link">
-            <i class="glyphicon glyphicon-export"></i>Back</a>
-          </li>
-          <li>
-            <a rel="nofollow" href="../logout.php" class="external-link">
-            <i class="glyphicon glyphicon-export"></i>Logout</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
 <!--navigation menu end here-->
 <div id="set">
   <div class="container">

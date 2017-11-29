@@ -33,19 +33,33 @@ $con = $res['contact_no'];
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Template  -->
     <link href="../css/templatemo_style.css" rel="stylesheet">
-</head>
-<body>
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
+    <body class="w3-light-grey">
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-large">
+          <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Logo</a>
+          <a href="passenger_panal.php?email=<?php echo @$_GET['email'] ?>" class="w3-bar-item w3-button w3-mobile">Back</a>
+          <a href="change_password.php?email=<?php echo @$_GET['email'] ?>" class="w3-bar-item w3-button w3-mobile">Change Password</a>
+          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
+        </div>
+</head>
 <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 100%;
       margin: auto;
   }
-  #set{padding-top: 80px;}
+ 
   #align{padding-right: 2px;}  
-  body{padding-top:30px;}
-
+  
   .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
   small {
@@ -55,46 +69,8 @@ $con = $res['contact_no'];
   }
 </style>
 
-<!--navigation menu start here-->
-<div id="templatemo_mobile_menu">
-  <ul class="nav nav-pills nav-stacked">
-    <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
-        <i class="glyphicon glyphicon-user"></i>Back</a>
-    </li>
-    <li><a rel="nofollow" href="change_password.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
-        <i class="glyphicon glyphicon-user"></i>Change Password</a>
-    </li>
-    <li><a rel="nofollow" href="../logout.php" class="external-link">
-        <i class="glyphicon glyphicon-user"></i>Logout</a>
-    </li>
-    <li><a rel="nofollow" href="copassenger_profile.php?email=<?php echo @$_GET['email']; ?>" class="external-link"><i class="glyphicon glyphicon-forward"></i>Slide Right</a></li>
-  </ul>
-</div>
 
-<div class="container_wapper">
-  <div id="templatemo_banner_menu">
-    <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo">
-        <a href="../index.php"><img src="../images/logo.png" id="logo_img" alt="website logo" title="Car Ride" /></a>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul class="nav nav-justified">
-          <li><a rel="nofollow" href="passenger_panal.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
-              <i class="glyphicon glyphicon-user"></i>Back</a>
-          </li>
-          <li><a rel="nofollow" href="change_password.php?email=<?php echo @$_GET['email'] ?>" class="external-link">
-              <i class="glyphicon glyphicon-user"></i>Change Password</a>
-          </li>
-          <li><a rel="nofollow" href="../logout.php" class="external-link">
-              <i class="glyphicon glyphicon-user"></i>Logout</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-8 visible-xs"><a href="#" id="mobile_menu"><span class="glyphicon glyphicon-th-list"></span></a></div>
-    </div>
-  </div>
-</div>
-<!--navigation menu end here-->
+
 
 
 <div id="set">
@@ -117,7 +93,7 @@ $con = $res['contact_no'];
     </div>
   </div>
 </div>
-<div id="templatemo_footer" style="background-color:#f15556"><p id="footer">Copyright &copy; 2017 RideOut System</p></div>
+
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
