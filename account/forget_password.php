@@ -10,28 +10,35 @@ session_start();
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
-    <link rel="shortcut icon" href="../favicon.png" />
-    <!-- Font Awesome -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template  -->
-    <link href="../css/templatemo_style.css" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="shortcut icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <body class="w3-light-grey">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!-- Navigation Bar -->
-        <div class="w3-bar w3-white w3-large">
-          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
-          <a href="../index.php" class="w3-bar-item w3-button w3-mobile">Home</a>
-          <a href="copassenger_login.php" class="w3-bar-item w3-button w3-mobile">Login</a>
-          <a href="copassenger_signup.php" class="w3-bar-item w3-button w3-mobile">Sign Up</a>
-          
-        </div>
+<body class="w3-light-grey">
+  <nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			</button>
+			<a class="navbar-brand" href="login_panal.php"><img src="../images/logo.jpg" height="30" width="80" /></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="../index.php">Home</a></li>
+				<li><a href="copassenger_login.php">Login</a></li>
+				<li><a href="copassenger_signup.php">Sign Up</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
 </head>
 <style>
     *,

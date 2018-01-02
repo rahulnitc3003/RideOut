@@ -54,39 +54,53 @@ if ($gClient->getAccessToken()) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
-    
     <meta name="author" content="templatemo">
-    <link rel="shortcut icon" href="../favicon.png" />
-    <!-- Font Awesome -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template  -->
-    <link href="../css/templatemo_style.css" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
-    
+    <title>RideOut</title>
+    <link rel="shortcut icon" href="../images/favicon.png">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
 </head>
-    <body class="w3-light-grey">
+<body class="w3-light-grey">
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="login_panal.php"><img src="../images/logo.jpg" height="30" width="80" /></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="user_profile.php">Profile</a></li>
+        <li><a href="login_panal.php">Back</a></li>
+        <li><a href="../logout.php">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
 
         <!-- Navigation Bar -->
-        <div class="w3-bar w3-white w3-large">
+        <!--div class="w3-bar w3-white w3-large">
           <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
           <a href="user_profile.php" class="w3-bar-item w3-button w3-mobile">Profile</a>
           <a href="login_panal.php" class="w3-bar-item w3-button w3-mobile">Back</a>
           <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
-        </div>
+        </div-->
 
 
 
 <!--google map script api start here-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOs735Nv4ymhLSmNDvkpK3NRCEOOvKlyg&libraries=places&callback=initMap" async defer>
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOs735Nv4ymhLSmNDvkpK3NRCEOOvKlyg&libraries=places&callback=initMap" async defer></script>
 <script>
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -209,6 +223,7 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) 
     </form>
    </div>
   </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>

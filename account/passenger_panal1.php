@@ -16,7 +16,7 @@ if(!$_SESSION['emailid'])
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     <meta name="author" content="RideOut Online System">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="../favicon.png" />
+    <link rel="shortcut icon" href="../images/favicon.png" />
     <!-- Font Awesome -->
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <!-- Bootstrap -->

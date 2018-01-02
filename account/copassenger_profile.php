@@ -26,31 +26,36 @@ $con = $res['contact_no'];
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     <meta name="author" content="RideOut Online System">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="../favicon.png" />
-    <!-- Font Awesome -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template  -->
-    <link href="../css/templatemo_style.css" rel="stylesheet">
-    
-    
-    
-    
+    <link rel="shortcut icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-
-    <body class="w3-light-grey">
-        <!-- Navigation Bar -->
-        <div class="w3-bar w3-white w3-large">
-          <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Logo</a>
-          <a href="passenger_panal.php?email=<?php echo @$_GET['email'] ?>" class="w3-bar-item w3-button w3-mobile">Back</a>
-          <a href="change_password.php?email=<?php echo @$_GET['email'] ?>" class="w3-bar-item w3-button w3-mobile">Change Password</a>
-          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
-        </div>
 </head>
+
+<body class="w3-light-grey">
+  <nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			</button>
+			<a class="navbar-brand" href="#"><img src="../images/logo.jpg" height="30" width="80" /></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="passenger_panal.php?email=<?php echo @$_GET['email'] ?>">Back</a></li>
+				<li><a href="change_password.php?email=<?php echo @$_GET['email'] ?>">Change Password</a></li>
+				<li><a href="../logout.php">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {

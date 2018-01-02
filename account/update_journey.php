@@ -61,30 +61,36 @@ if ($gClient->getAccessToken()) {
     <title>RideOut</title>
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
-    <meta name="author" content="templatemo">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="../favicon.png" />
-    <!-- Font Awesome -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template  -->
-    <link href="../css/templatemo_style.css" rel="stylesheet">
-    
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <body class="w3-light-grey">
+    <meta name="author" content="RideOut System">
+    <link rel="shortcut icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!-- Navigation Bar -->
-        <div class="w3-bar w3-white w3-large">
-          <a href="login_panal.php" class="w3-bar-item w3-button w3-red w3-mobile"><img src="../images/logo.png" height="30" width="80" /></a>
-          <a href="user_profile.php" class="w3-bar-item w3-button w3-mobile">Profile</a>
-          <a href="login_panal.php" class="w3-bar-item w3-button w3-mobile">Back</a>
-          <button class="btn btn-danger "id="mabt">Show Details</button>
-          <a href="../logout.php" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Logout</a>
-        </div>
+<body class="w3-light-grey">
+  <nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			</button>
+			<a class="navbar-brand" href="login_panal.php"><img src="../images/logo.jpg" height="30" width="80" /></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="user_profile.php">Profile</a></li>
+				<li><a href="login_panal.php">Back</a></li>
+		        <li><a href="../logout.php">Logout</a></li>
+		        <li><button class="btn btn-danger" id="mabt">Show Details</button></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 </head>
     
 
@@ -140,10 +146,7 @@ if ($gClient->getAccessToken()) {
                 //echo $var;
 	            $postdata=$db->show_details($var);
                 $i=0;
-	            foreach($postdata as $post)
-	            {
-                  $i++;
-		    ?>
+                ?>
                 <tr>
                     <td><center><b>Journey Id</b></center></td>
                     <td><center><b>Source</b></center></td>
@@ -152,6 +155,12 @@ if ($gClient->getAccessToken()) {
                     <td><center><b>Date of Journey</b></center></td>
                     <td><center><b>Car Number</b></center></td>
                 </tr>
+                <?php
+	            foreach($postdata as $post)
+	            {
+                  $i++;
+		    ?>
+                
                 <tr align="center">
                     <td><?php echo $post["journey_id"];?></td>
                     <td><?php echo $post["source"];?></td>

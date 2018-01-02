@@ -13,7 +13,7 @@ echo $ver;
     <meta name="description" content="Car Ride System Provide facility to passenger to book a particular ride" />
     
     <meta name="author" content="templatemo">
-    <link rel="shortcut icon" href="../favicon.png" />
+    <link rel="shortcut icon" href="../images/favicon.png" />
     <!-- Font Awesome -->
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <!-- Bootstrap -->
@@ -34,7 +34,7 @@ echo $ver;
 <div class="container_wapper">
   <div id="templatemo_banner_menu">
     <div class="container-fluid">
-      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="dragonfruit website template" title="Car Ride" /></a>
+      <div class="col-xs-4 templatemo_logo"><a href="#"><img src="../images/logo.png" id="logo_img" alt="Rideout" title="Car Ride" /></a>
       </div>
       <div class="col-sm-8 hidden-xs">
         <ul class="nav nav-justified">
